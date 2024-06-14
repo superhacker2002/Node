@@ -25,6 +25,8 @@
 By utilizing the DeNet Storage Protocol, users pay for the storage they need, while Datakeepers are rewarded for the storage they provide.
 #### 💰 [Calculate your potential reward](https://p.denet.app/datakeeper)
 
+# Becoming Datakeeper: node set up instruction
+
 ### Table of contents:
 - [Requirements](#requirements)
 - [Step 1: Installation](#step-1-installation)
@@ -33,19 +35,20 @@ By utilizing the DeNet Storage Protocol, users pay for the storage they need, wh
     - [ARMv6](#linuxmacosarmv6)
     - [MacOS](#linuxmacosarmv6)
 - [Step 2: Configuration](#step-2-configuration)
-- [Step 3: Getting Datakeeper ID](#step-3-getting-datakeeper-id)
-- [Send proofs](#send-proofs-and-earn-reward)
+- [Step 3: Becoming Online](#step-3-becoming-online)
 - [FAQ](#faq)
 
 
 ## Requirements
-💡 **Make sure you meet all the requirements:**
-- 1GB of RAM
-- Public and static IP address
-- Stable internet connection, with a minimum speed of **20Mbps**
-- At least 0.1 Polygon MATIC (for sending proofs)
-- Free disk space > 512G
-- Operating Systems: Linux, MacOS, Windows (all x64)
+💡 **Before setting up a node, make sure you meet all the requirements:**
+- Public & static IP address
+- At least 0.1 Polygon MATIC (in order to send proofs)
+- 1GiB of RAM
+- Stable internet connection, minimum speed - 20Mb/sec
+- Provided free disk space > 512 GiB
+- Operating system: Linux, MacOS, Windows (all x64)
+- TBY balance ≥ your Datakeeper ID
+
 
 ## Step 1: Installation
 
@@ -87,58 +90,30 @@ denode
 ## Step 2: Configuration
 
 **Follow the instructions and configure your node:**
-- Export Private key 
+- Export Private key (we advise to create a new wallet address specifically to run DeNet Node)
 - Set the password to protect your private key
 - Enter your public IP address – you can simply Google “whats my ip” to determine this
-- Port **(press enter to use default)**
+- Port (from 10000 to 65535) or use default 55050 (press enter)
 - Share disk (can be repeated with many disks)
     - Folder path of that you want to share
     - Size of the partition in GiB
 - Choose the blockchain (currently only Polygon is supported)
     - Confirm selection of polygon **(press enter to use default)**
     - Select RPC – you can use a custom RPC or the default (https://polygon-rpc.com)
+ 
+## Step 3: Becoming Online
+To start receiving files from users and earning rewards, your computer needs to act as a server, which requires having a fixed IPv4 address through which it can be accessed.
+You can own fixed IP in 2 ways: 
 
-## Step 3: Getting Datakeeper ID
+**Own fixed IP:**
+Contact your ISP and request a fixed IP address. They may provide it for an additional fee or as part of a special plan for hosting servers or other services requiring a public IP. Once you have done that:
+- Set up port forwarding on your router to direct incoming TCP traffic from the router's port to your local node's IP address and port.
+- Ensure your firewall allows incoming connections for configured port.
+- Restart denode.
 
-To be part of the network, you should get a Datakeeper ID.\
-You will need DE [(0x081Ec4c0e30159C8259BAD8F4887f83010a681DC)](https://polygonscan.com/address/0x081ec4c0e30159c8259bad8f4887f83010a681dc) in order to open deposit of TBY [(0x1a9b54A3075119f1546C52cA0940551A6ce5d2D0)](https://polygonscan.com/address/0x1a9b54a3075119f1546c52ca0940551a6ce5d2d0) and get Datakeeper ID
-
-
-1. Go to https://p.denet.app/datakeeper 
-
-2. Connect your wallet from [step 1](#step-1-installation) (currently only [Metamask](https://metamask.io/) and Wallet Connect are supported), and be sure to switch to the Polygon network (chain 137).
-
-
-3. Check that you have required amount of TBY to rent a Datakeeper ID.\
-</br><img src="assets/not_enough_tby.png" width="360"/>
-
-    If you don't have enough TBY and DE:
-    1. Top up your DE balance (if you haven't)
-</br><img src="assets/top_up_de_cta.png" width="400"/>
-</br><img src="assets/top_up_de.png" width="400"/>
-
-   2. Convert DE to TBY (required TBY amount ≥ Dataeeper ID you'll get)
-</br><img src="assets/de_to_tby_cta.png" width="400"/>
-</br><img src="assets/de_to_tby.png" width="400"/>
-
-
-4. When you have enough TBY deposit, you now able to run node and lock your Datakeeper ID\
-Relaunch your node and start getting files.
-
-## Send proofs and earn reward: 
-
-Wait for first files to be uploaded on your node.
-Send your first proofs and earn $TBY and $TBYmined as a reward.
-
-🪙 **Earn $TBYmined for sending proofs. Withdraw $TBYmined to $DE token**
-- Use to influence protocol parameters at Consensus
-- Use it for your own benefit
-
-🪙 **Earn $TBY as a system reward from the protocol (2% APY of $TBY total supply)**
-- Use it for storing data
-- Soon: convert it to $TBYmined with charable proofs.
-
-Go to [datakeeper page](https://p.denet.app/datakeeper). Login with your datakeeper account, and withdraw your TBY_Mined.
+**VPN port forwarding:**
+- Setup a VPN with port forwarding function. You can use your own VPS server to configure VPN and forward connections, or you can find third-party VPN services with such features.
+*Make sure that you’ve set correct IPv4 address and Port in your config.json*
 
 Ask your questions here and get help:
 
@@ -151,37 +126,61 @@ Ask your questions here and get help:
 
 ## FAQ 
 
-### How do I calculate my potential earnings ❓
+### Who is Datakeeper? ❓
 
-▪ Visit [datakeeper page](https://p.denet.app/datakeeper) and use calculator to estimate your potential income.
+▪ A Datakeeper launches a node in the DeNet network and provides storage space to users. It’s simple: Users pay for storage, Datakeepers are rewarded, no intermediaries (not even DeNet itself). 
 
-### How to see and withdraw my reward ❓
+### What is a Datakeeper ID ❓
 
-▪ Go to [datakeeper page](https://p.denet.app/datakeeper). Login with your datakeeper account, and withdraw your TBY_Mined.
+▪ Datakeeper ID is your serial number in the network, obtained by making a TBY deposit. For example, if there are 10 Datakeepers, you need to deposit 11 TBY to take the next spot. 
 
-### When will I start earning income ❓
+### What data will I store ❓
 
-▪ You will start earning TBY_Mined when files are uploaded to your node, and you send proof of storing these files based on the DeNet Proof-of-Storage algorithm.
+▪ Actually, you will store only some encrypted file parts. Users can upload any kind of data through DeNet Storage, after files are split into 1MB parts, encrypted and distributed across the network. 
 
+### Why is the Datakeeper ID price increasing with each new node ❓
 
-### What is the purpose of getting a Datakeeper ID ❓
+▪ To send proofs and earn rewards, you need to have TBY balance ≥ your Datakeeper ID. It's crucial for ensuring network security: it prevents sudden exits of Datakeepers, potential attacks like the 51% or Sybil attacks, and ensures timely file replication. 
 
-▪️ To become a Datakeeper and run a DeNode, you must make a TBY deposit equal to the ID you'll take up. The deposit improves network stability, enhances upload and download speeds, and provides a secure environment for all members. For more information, please refer to our [article](https://medium.com/denetpro/denet-storage-protocol-v3-to-address-key-challenge-of-decentralization-f19b9041b0fa).
+### Which drive is better to use (HDD, SSD, NVMe) ❓
 
-### Why do I need TBY on my balance ❓
-▪️ You can only send proofs and earn rewards if your TBY balance ≥ your Datakeeper ID.
+▪️ There are no special requirements, but the faster your I/O speed, the more files you are able to store simultaneously and the higher rewards will be.
 
-### Will my deposit be spent when running a node ❓
+### Will my TBY deposit be spent ❓
 
 ▪️ No, the deposit amount remains the same and is only used to assert your ID.
 
-### What can I do with my deposit if I want to leave ❓
+### What is a node interception ❓
 
-▪️ Your deposit remains your property and can be withdrawn at any time. However, note that your ID may be taken by another member after you leave.
+▪️ Note that in some cases, your ID may be intercepted or "stolen." This can occur if your TBY deposit is less than your Datakeeper ID, or if your node has been inactive for 30 days. Losing your Datakeeper ID will likely result in a higher cost to secure another spot, so it's crucial to monitor your TBY deposit and node activity closely.
+
 ### Can I run DeNet Node on a VPS  ❓
 
 ▪️ Yes, it is possible to run DeNode on a VPS. However, we recommend running the node on your own machine if it is your only purpose. If you have a PC or laptop with Linux or MacOS, obtaining a public IP from your ISP will be cheaper than using a VPS.
 
-### Do I need an SSD for my hard drive  ❓
+### What Internet speed do I need ❓
 
-▪️ There are no specific requirements for your hard drive, but faster I/O speed will allow you to store more files simultaneously and send proofs more often. Your hard drive must be in working condition without any damage.
+▪️ The minimum speed required is 20Mb/sec. However, higher and more stable internet speeds will provide better income opportunities.
+
+### How much space should I share ❓
+
+▪️ You can share as much space as you want. The more you allocate, the greater the potential rewards you can receive.
+
+### How much can I earn monthly  ❓
+
+Currently, there are 2 types of rewards for Datakeepers:
+
+**1. Rewards for providing storage capacity and sending proofs of storage**
+
+Visit https://p.denet.app/datakeeper and calculate your potential reward based on capacity you provide. Please note that the reward is relevant in case of fulfilling the capacity chosen. The amount of rewards depends on several factors, including storage capacity, network activity, and Max Loss Rate settings.
+
+**Max Loss Rate:**
+- This parameter determines the maximum acceptable loss ratio for Polygon network transactions when sending proofs.
+- Higher Max Loss Rate allows larger proof rewards but increases transaction cost risks. It is determined by the condition: proof_reward_in_matic > tx_cost_in_matic / max_loss_rate.
+Y- ou can learn more about Max Loss Rate and other reward factors in the [DeNet Consensus documentation](https://consensus.denet.app/onchain)
+
+**2. Store&Earn program rewards**
+
+S&E rewards are based on your TBY balance and completed tasks. Upon joining the Store&Earn program, Datakeepers get +4 to their Total Boost, which can significantly increase their rewards.
+
+Visit https://beta.storeandearn.denet.app/ to calculate your potential reward based on your TBY balance.
