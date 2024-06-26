@@ -23,7 +23,7 @@
 
 💽 **Datakeepers** offer their unused storage space to DeNet Storage users, creating a mutually beneficial conditions for all without any intermediaries. \
 By utilizing the DeNet Storage Protocol, users pay for the storage they need, while Datakeepers are rewarded for the storage they provide.
-#### 💰 [Calculate your potential reward](https://p.denet.app/datakeeper)
+#### 💰 [Calculate your potential reward](https://node.denet.app/)
 
 # Becoming Datakeeper: node set up instruction
 
@@ -150,6 +150,12 @@ Ask your questions here and get help:
 
 ▪️ No, the deposit amount remains the same and is only used to assert your ID.
 
+### What is rTBY? ❓
+
+▪️ rTBY stands for Rented TBY. Rented TBY enables you to obtain a Datakeeper ID and operate a node for a limited duration. Once the rental period ends, you must either renew the rental or obtain a permanent ID with TBY. Otherwise, there is a risk of your ID being intercepted.
+
+Note that rTBY does not count within the Store&Earn program, only TBY does.
+
 ### What is a node interception ❓
 
 ▪️ Note that in some cases, your ID may be intercepted or "stolen." This can occur if your TBY deposit is less than your Datakeeper ID, or if your node has been inactive for 30 days. Losing your Datakeeper ID will likely result in a higher cost to secure another spot, so it's crucial to monitor your TBY deposit and node activity closely.
@@ -172,7 +178,7 @@ Currently, there are 2 types of rewards for Datakeepers:
 
 **1. Rewards for providing storage capacity and sending proofs of storage**
 
-Visit https://p.denet.app/datakeeper and calculate your potential reward based on capacity you provide. Please note that the reward is relevant in case of fulfilling the capacity chosen. The amount of rewards depends on several factors, including storage capacity, network activity, and Max Loss Rate settings.
+Visit https://node.denet.app/#calculator and calculate your potential reward based on capacity you provide. Please note that the reward is relevant in case of fulfilling the capacity chosen. The amount of rewards depends on several factors, including storage capacity, network activity, and Max Loss Rate settings.
 
 **Max Loss Rate:**
 - This parameter determines the maximum acceptable loss ratio for Polygon network transactions when sending proofs.
