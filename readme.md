@@ -54,7 +54,7 @@ By utilizing the DeNet Storage Protocol, users pay for the storage they need, wh
 
 ### Windows
 
-**1. Download latest release from [here](https://github.com/DeNetPRO/Node/releases/latest/download/denode-windows.zip)**
+**1. Download latest release from [here](https://github.com/DeNetPRO/Node/releases/latest/download/windows.zip)**
 
 **2. Open containing folder, and extract archive to any location**
 
