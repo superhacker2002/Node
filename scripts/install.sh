@@ -8,7 +8,7 @@ ARCH=$(uname | tr [:upper:] [:lower:])
 
 # prepare the download URL
 GITHUB_LATEST_VERSION=$(curl -L -s -H 'Accept: application/json' https://github.com/denetpro/node/releases/latest | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
-GITHUB_FILE="$ARCH.zip"
+GITHUB_FILE="denode-$ARCH.zip"
 GITHUB_URL="https://github.com/denetpro/node/releases/download/${GITHUB_LATEST_VERSION}/${GITHUB_FILE}"
 
 # install/update the local binary
