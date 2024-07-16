@@ -54,7 +54,7 @@ By utilizing the DeNet Storage Protocol, users pay for the storage they need, wh
 
 ### Windows
 
-**1. Download latest release from [here](https://github.com/DeNetPRO/Node/releases/latest/download/windows.zip)**
+**1. Download latest release from [here](https://github.com/DeNetPRO/Node/releases)**
 
 **2. Open containing folder, and extract archive to any location**
 
@@ -158,7 +158,7 @@ Note that rTBY does not count within the Store&Earn program, only TBY does.
 
 ### What is a node interception ❓
 
-▪️ Note that in some cases, your ID may be intercepted or "stolen." This can occur if your TBY deposit is less than your Datakeeper ID, or if your node has been inactive for 30 days. Losing your Datakeeper ID will likely result in a higher cost to secure another spot, so it's crucial to monitor your TBY deposit and node activity closely.
+▪️ Note that in some cases, your ID may be intercepted or "stolen." This can occur if your TBY deposit is less than your Datakeeper ID, or if your node has been inactive for 30 days. Losing your Datakeeper ID will likely result in a higher cost to secure another spot, so it's crucial to monitor your TBY deposit and node activity closely. Be sure to update your node regularly.
 
 ### Can I run DeNet Node on a VPS  ❓
 
