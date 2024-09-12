@@ -2,7 +2,6 @@
     <img src="assets/LOGO.png">
 </p>
 
-
 <p align="center">
     Monetize your computer's storage now!
     <br/>
@@ -26,6 +25,7 @@ By utilizing the DeNet Storage Protocol, users pay for the storage they need, wh
 #### 💰 [Calculate your potential reward](https://node.denet.app/)
 
 # Becoming Datakeeper: node set up instruction
+❗️ POLYGON NODES ARE SOLD OUT, STAY TUNED FOR UPDATES!
 
 ### Table of contents:
 - [Requirements](#requirements)
