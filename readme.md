@@ -63,7 +63,12 @@ By utilizing the DeNet Storage Protocol, users pay for the storage they need, wh
 <img alt="win1.png" src="assets/win_open_cmd1.png" width="350" >
 <img alt="win2.png" src="assets/win_open_cmd2.png" width="350" >
 
-**4. Run denode.exe using CMD**
+**5. If you already have an account, set up denode password as an environment variable**
+```
+set DENODE_PASSWORD=your_password
+``` 
+
+**4. Run ```denode-launcher.exe ./denode.exe``` using CMD**
 
 <img alt="win3.png" src="assets/win_open_cmd3.png" width="450" >
 
@@ -81,9 +86,13 @@ Using wget:
 sh -c "$(wget  -O - https://raw.githubusercontent.com/denetpro/node/master/scripts/install.sh)"
 ```
 
-**2. Launch denode binary**
+**2. Set up denode password environment variable**
 ```
-denode
+export DENODE_PASSWORD=your_password
+```
+**3. Launch denode binary**
+```
+denode-launcher denode
 ```
 -------------------
 
