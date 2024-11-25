@@ -72,7 +72,7 @@ set DENODE_PASSWORD=your_password
 <img alt="win3.png" src="assets/win_open_cmd3.png" width="450" >
 
 -------------------
-### Linux/ARMv6
+### Linux/MacOS/ARMv6
 
 **1. Download binary using next command**
 
