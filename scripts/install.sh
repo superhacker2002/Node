@@ -16,7 +16,7 @@ case "$ARCH" in
 esac
 
 
-GITHUB_FILE=$(echo "denode-$ARCH.tar.gz" | tr '[:upper:]' '[:lower:]')
+GITHUB_FILE=$(echo "denode-$(uname -s)-$ARCH.tar.gz" | tr '[:upper:]' '[:lower:]')
 GITHUB_URL="https://github.com/denetpro/node/releases/download/${TAG}/${GITHUB_FILE}"
 
 echo "Downloading $GITHUB_FILE from $GITHUB_URL..."
