@@ -57,10 +57,9 @@ By utilizing the DeNet Storage Protocol, users pay for the storage they need, wh
 **1. Download latest release from [here](https://github.com/DeNetPRO/Node/releases)**
 
 **2. Open containing folder, and extract archive to any location**
+<img alt="win1.png" src="assets/win_open_cmd1.png" width="350" >
 
 **3. Open that location using CMD**
-
-<img alt="win1.png" src="assets/win_open_cmd1.png" width="350" >
 <img alt="win2.png" src="assets/win_open_cmd2.png" width="350" >
 
 **5. If you already have an account, set up denode password as an environment variable**
