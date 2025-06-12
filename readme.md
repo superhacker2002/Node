@@ -8,10 +8,10 @@
     <br/>
     <a href="https://denet.pro">
         <img alt="website.png" src="assets/denet.pro..svg" height="31" width="120"/>
-    </a> 
+    </a>
     <a href="https://t.me/+Yu5KnSruttc5ZGRi">
         <img alt="tg.png" src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" height="30" width="120"/>
-    </a> 
+    </a>
     <a href="https://discord.gg/cPz9m4cSWv">
         <img alt="discord.png" src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" height="30" width="120" />
     </a>
@@ -69,20 +69,20 @@ You need the private key from a wallet with a Datakeeper Node License.
 2. Select the account with the Datakeeper Node License.
 3. Go to "Account Details" > "Export Private Key."
 4. Enter your Metamask password and copy the private key.
-5. Store it securely. Do not share it!
+5. **Store it securely! Do not share it anywhere!**
 
 _If you use any other wallet, the steps may differ but should be similar to the list above._
 
 ## Step 2: Download Datakeeper Node
 
 1. Visit [https://github.com/DeNetPRO/Node/releases](https://github.com/DeNetPRO/Node/releases)
-2. Download the latest application executable for your OS (Linux, macOS, or Windows)  
+2. Download the latest application executable for your OS (Linux, macOS, or Windows)
    ![](assets/executables.png)
    **macOS**: use amd64 for Intel hardware, arm64 for Apple Silicon.
 
-3. Copy application to another directory.  
-   **Example:**   
-   - macOS/Linux: copy denode executable to `~/denet/` directory  
+3. Copy application to another directory.
+   **Example:**
+   - macOS/Linux: copy denode executable to `~/denet/` directory
    - Windows: copy to `C:\denet\` directory
 
 ## Step 3: Start DeNet Node
@@ -90,8 +90,8 @@ Launch the node via a terminal.
 
 ### Windows
 1. Open Terminal: Press **Win + R**, type cmd or powershell, and press Enter.
-   ![](assets/win-powershell.png)
-2. Start the Application: 
+   ![](assets/win-cmd.png)
+2. Start the Application:
 - Navigate to the Application Folder
    ![](assets/win-folder.png)
 - Run application executable
@@ -99,19 +99,32 @@ Launch the node via a terminal.
 ### Linux
 1. Open Terminal: Use Ctrl + Alt + T or your terminal shortcut.
    Or SSH to your remote host.
-2. Start the Application: Navigate to the Application Folder and Run application executable
-   ![](assets/mac-linux-run.png)
+2. Run the following commands to create folder, copy and run denode
+```bash
+curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.0.0-rc1/denode-linux-amd64
+mkdir ~/denet
+cp denode-linux-amd64 ~/denet/denode
+cd ~/denet
+chmod +x denode
+```
+   ![](assets/linux-run.png)
 
 ### MacOS
-1. Open "Terminal" via Spotlight or Applications  
+1. Open "Terminal" via Spotlight or Applications
    ![](assets/mac-terminal.png)
-   ![](assets/mac-opened-terminal.png)
-2. Start the Application: same as for Linux systems 
-NOTE: you may need “xattr -d com.apple.quarantine denode” to allow executable
-   ![](assets/mac-linux-run.png)
+2. Run the following commands to create folder, copy and run denode
+```bash
+curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.0.0-rc1/denode-macos-amd64
+mkdir ~/denet
+cp ~/Downloads/denode-macos-amd64 ~/denet/denode
+cd ~/denet
+chmod +x denode
+xattr -d com.apple.quarantine denode
+```
+   ![](assets/mac-run.png)
 
 ## Step 4: Run DeNet Node
-1. **Enter private key**: Paste the copied private key and press Enter.  
+1. **Enter private key**: Paste the copied private key and press Enter.
 - The key is stored securely on your device, encrypted with this password.
 
 2. **Set Password**: Enter a strong password
@@ -120,7 +133,7 @@ NOTE: you may need “xattr -d com.apple.quarantine denode” to allow executabl
 3. **Choose Port**: Press Enter for the default one
 - Or specify another (value from 10000 to 65535)
 4. **Specify Storage Directory**: Enter path to the user files storage
-- **e.g.**, /home/user/denet_storage (Linux/macOS) or C:\denet_storage (Windows). 
+- **e.g.**, /home/user/denet_storage (Linux/macOS) or C:\denet_storage (Windows).
 - Ensure the directory exists and has sufficient space.
 5. **Set Storage Space**:
 - Specify the amount of disk space to allocate for DeNet Storage (e.g., 10). Enter the value (only number, without GiB) when prompted.
@@ -128,7 +141,7 @@ NOTE: you may need “xattr -d com.apple.quarantine denode” to allow executabl
 - Or if you want to use another drive, provide its path when prompted.
 8. **Select RPC for peaq Blockchain**: Press Enter to use default one.
 - Or choose the RPC endpoint (Select RPC for peaq (ChainID: 3338)).
-9. **Verify Operation**: 
+9. **Verify Operation**:
 - Watch the terminal output. If no errors appear, your DeNet Node is running correctly.
    ![](assets/successful-launch.png)
 
@@ -147,6 +160,16 @@ Track your node’s activity using the peaq Subscan web interface.
 - **Port Conflicts**: If port 55050 is in use, try another port (e.g., 55051)
   ![](assets/port-error.png)
 - **Subscan Issues:** If transactions don’t appear, confirm your node is running and has enough gas tokens (> 0.03 $PEAQ).
+- **Not Opened macOS:**
+   - Run the following command to allow `denode` executable:
+   - `xattr -d com.apple.quarantine denode`
+   ![](assets/mac-error-01.png)
+- **Permission denied**
+   ```bash
+   user@desktop:~/denet$ ./denode
+   -bash: ./denode: Permission denied
+   ```
+   - Allow execution by running `chmod +x denode`
 ## Notes
 - Keep your terminal open to maintain the node’s operation. Closing it stops the node. Otherwise, set up the node as a background service (see [Advanced Settings: Systemd Service](#advanced-settings)).
 - Additional steps (e.g., advanced settings) will be added as needed — check for updates from DeNet.
@@ -177,6 +200,9 @@ ExecStart=/usr/local/bin/denode
 EnvironmentFile=/home/denet/denode.env
 Restart=always
 RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
 ```
 **/home/denet/denode.env**
 ```text
@@ -201,4 +227,3 @@ Now your node will be running and start at boot.
 <a href="https://discord.gg/cPz9m4cSWv">
     <img alt="discord.png" src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" height="30" width="120" />
 </a>
-
