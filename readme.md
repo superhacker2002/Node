@@ -109,7 +109,7 @@ chmod +x denode
 ```
    ![](assets/linux-run.png)
 
-### MacOS
+### macOS
 1. Open "Terminal" via Spotlight or Applications
    ![](assets/mac-terminal.png)
 2. Run the following commands to create folder, copy and run denode
