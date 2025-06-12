@@ -90,7 +90,7 @@ Launch the node via a terminal.
 
 ### Windows
 1. Open Terminal: Press **Win + R**, type cmd or powershell, and press Enter.
-   ![](assets/win-powershell.png)
+   ![](assets/win-cmd.png)
 2. Start the Application:
 - Navigate to the Application Folder
    ![](assets/win-folder.png)
@@ -99,17 +99,29 @@ Launch the node via a terminal.
 ### Linux
 1. Open Terminal: Use Ctrl + Alt + T or your terminal shortcut.
    Or SSH to your remote host.
-2. Start the Application: Navigate to the Application Folder and Run application executable
-   ![](assets/mac-linux-run.png)
+2. Run the following commands to create folder, copy and run denode
+```bash
+curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.0.0-rc1/denode-linux-amd64
+mkdir ~/denet
+cp denode-linux-amd64 ~/denet/denode
+cd ~/denet
+chmod +x denode
+```
+   ![](assets/linux-run.png)
 
 ### MacOS
 1. Open "Terminal" via Spotlight or Applications
    ![](assets/mac-terminal.png)
-   ![](assets/mac-opened-terminal.png)
-2. Start the Application: same as for Linux systems
-
-NOTE: you may need “xattr -d com.apple.quarantine denode” to allow executable
-   ![](assets/mac-linux-run.png)
+2. Run the following commands to create folder, copy and run denode
+```bash
+curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.0.0-rc1/denode-macos-amd64
+mkdir ~/denet
+cp ~/Downloads/denode-macos-amd64 ~/denet/denode
+cd ~/denet
+chmod +x denode
+xattr -d com.apple.quarantine denode
+```
+   ![](assets/mac-run.png)
 
 ## Step 4: Run DeNet Node
 1. **Enter private key**: Paste the copied private key and press Enter.
@@ -148,6 +160,16 @@ Track your node’s activity using the peaq Subscan web interface.
 - **Port Conflicts**: If port 55050 is in use, try another port (e.g., 55051)
   ![](assets/port-error.png)
 - **Subscan Issues:** If transactions don’t appear, confirm your node is running and has enough gas tokens (> 0.03 $PEAQ).
+- **Not Opened macOS:**
+   - Run the following command to allow `denode` executable:
+   - `xattr -d com.apple.quarantine denode`
+   ![](assets/mac-error-01.png)
+- **Permission denied**
+   ```bash
+   user@desktop:~/denet$ ./denode
+   -bash: ./denode: Permission denied
+   ```
+   - Allow execution by running `chmod +x denode`
 ## Notes
 - Keep your terminal open to maintain the node’s operation. Closing it stops the node. Otherwise, set up the node as a background service (see [Advanced Settings: Systemd Service](#advanced-settings)).
 - Additional steps (e.g., advanced settings) will be added as needed — check for updates from DeNet.
