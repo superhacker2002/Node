@@ -177,6 +177,9 @@ ExecStart=/usr/local/bin/denode
 EnvironmentFile=/home/denet/denode.env
 Restart=always
 RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
 ```
 **/home/denet/denode.env**
 ```text
