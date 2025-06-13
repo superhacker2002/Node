@@ -184,7 +184,7 @@ A graphical user interface (GUI) for seamless node operation coming soon. Stay t
 Before running **denode** in Docker, you need to generate config and keystore files.
 1. Create a directory for a compose project.
 2. Initial account and config setup
-`docker run -it --rm -v ./config:/home/denode/.denode denetpro/denode:v4.0.0-rc1`
+`docker run -it --rm -v ./config:/root/.denode denetpro/denode:v4.0.0-rc1`
 3. Follow [Step 4](#step-4-run-denet-node) to setup account and config
 4. Verify you have `config.yaml` and `UTC--` files in config folder
 **Folder structure**
