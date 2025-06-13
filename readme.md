@@ -180,6 +180,46 @@ A graphical user interface (GUI) for seamless node operation coming soon. Stay t
 
 ## Advanced Settings:
 
+### Running in Docker
+Before running **denode** in Docker, you need to generate config and keystore files.
+1. Create a directory for a compose project.
+2. Initial account and config setup
+`docker run -it --rm -v ./config:/home/denode/.denode denetpro/denode:v4.0.0-rc1`
+3. Follow [Step 4](#step-4-run-denet-node) to setup account and config
+4. Verify you have `config.yaml` and `UTC--` files in config folder
+**Folder structure**
+```
+denode
+├── config/
+│   ├── config.yaml
+│   └── UTC--2025-06-09T12-57-10.067117344Z-6d09eb24
+├── data/
+├── denode.env
+└── docker-compose.yml
+```
+**denode.env**
+```text
+DENODE_PASSWORD="your_password"
+```
+**docker-compose.yml**
+```yaml
+services:
+  denode:
+    image: denetpro/denode:v4.0.0-rc1
+    command: ["--config", "/denode/config/config.json", "--keystore", "/denode/config"]
+    env_file: denode.env
+    volumes:
+      - ./config:/denode/config
+      - ./data:/denode/storage/data
+    restart: always
+    ports:
+      - 55050:55050
+```
+
+> In this example we mount `data` directory from the same partition or hard drive where `docker-compose.yaml` located.
+
+> You need to specify your own paths.
+
 #### Systemd service (Linux)
 - It is recommended to run as non-root user.
 - Follow [Step 4](#step-4-run-denet-node) first. You should have config files in the path
@@ -219,8 +259,6 @@ Now your node will be running and start at boot.
 
 **View latest logs**
 `journalctl -u denode -r`
-
-
 
 #### Ask your questions here and get help:
 
