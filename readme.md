@@ -7,7 +7,7 @@
     <br/>
     <br/>
     <a href="https://denet.pro">
-        <img alt="website.png" src="assets/denet.pro..svg" height="31" width="120"/>
+        <img alt="website.png" src="assets/denet.pro.svg" height="31" width="120"/>
     </a>
     <a href="https://t.me/+Yu5KnSruttc5ZGRi">
         <img alt="tg.png" src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" height="30" width="120"/>
@@ -36,7 +36,7 @@ This guide walks you through setting up and running a DeNet Node, enabling your 
 - [Step 3: Start Node](#step-3-start-denet-node)
   - [Windows](#windows)
   - [Linux](#linux)
-  - [MacOS](#macos)
+  - [macOS](#macos)
 - [Step 4: Run DeNet Node](#step-4-run-denet-node)
 - [Step 5: Monitor Transactions](#step-5-monitor-transactions)
 
