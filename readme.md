@@ -29,18 +29,29 @@ This guide walks you through setting up and running a DeNet Node, enabling your 
 
 ### Table of contents:
 
-- [Requirements](#requirements)
-- [Step 0: License Verification](#step-0-verify-your-account-has-license)
-- [Step 1: Copy Private Key](#step-1-copy-your-private-key)
-- [Step 2: Download Datakeeper Node](#step-2-download-datakeeper-node)
-- [Step 3: Start Node](#step-3-start-denet-node)
-  - [Windows](#windows)
-  - [Linux](#linux)
-  - [macOS](#macos)
-- [Step 4: Run DeNet Node](#step-4-run-denet-node)
-- [Step 5: Monitor Transactions](#step-5-monitor-transactions)
+- [Denode](#denode)
+  - [Installation](#installation)
+    - [Requirements](#requirements)
+    - [Step 0: License Verification](#step-0-verify-your-account-has-license)
+    - [Step 1: Copy Private Key](#step-1-copy-your-private-key)
+    - [Step 2: Download Datakeeper Node](#step-2-download-datakeeper-node)
+    - [Step 3: Start Node](#step-3-start-denet-node)
+      - [Windows](#windows)
+      - [Linux](#linux)
+      - [macOS](#macos)
+    - [Step 4: Run DeNet Node](#step-4-run-denet-node)
+    - [Step 5: Monitor Transactions](#step-5-monitor-transactions)
+- [Node Manager (GUI)](#denode-manager-gui)
+  - [Installation](#installation-1) 
+    - [Step 0: Prepare Environment](#step-0-prepare-environment)
+    - [Step 1: Download Node Manager](#step-1-download-application)
+    - [Step 2: Install And Run](#step-2-install-and-run)
+      - [Windows](#windows-1)
+      - [Linux](#linux-1)
+      - [macOS](#macos-1)
 
-
+# Denode
+## Installation
 ## Requirements
 
   - A wallet address (DeNet app/Metamask/any other wallet) holding a Datakeeper Node License.
@@ -178,51 +189,9 @@ Congratulations, Datakeeper! Your DeNet Node is now contributing to the decentra
 
 A graphical user interface (GUI) for seamless node operation coming soon. Stay tuned!
 
-## Advanced Settings:
-
-### Running in Docker
-Before running **denode** in Docker, you need to generate config and keystore files.
-1. Create a directory for a compose project.
-2. Initial account and config setup
-`docker run -it --rm -v ./config:/root/.denode denetpro/denode:v4.0.0-rc1`
-3. Follow [Step 4](#step-4-run-denet-node) to setup account and config
-4. Verify you have `config.yaml` and `UTC--` files in config folder
-**Folder structure**
-```
-denode
-├── config/
-│   ├── config.yaml
-│   └── UTC--2025-06-09T12-57-10.067117344Z-6d09eb24
-├── data/
-├── denode.env
-└── docker-compose.yml
-```
-**denode.env**
-```text
-DENODE_PASSWORD="your_password"
-```
-**docker-compose.yml**
-```yaml
-services:
-  denode:
-    image: denetpro/denode:v4.0.0-rc1
-    command: ["--config", "/denode/config/config.json", "--keystore", "/denode/config"]
-    env_file: denode.env
-    volumes:
-      - ./config:/denode/config
-      - ./data:/denode/storage/data
-    restart: always
-    ports:
-      - 55050:55050
-```
-
-> In this example we mount `data` directory from the same partition or hard drive where `docker-compose.yaml` located.
-
-> You need to specify your own paths.
-
 #### Systemd service (Linux)
 - It is recommended to run as non-root user.
-- Follow [Step 4](#step-4-run-denet-node) first. You should have config files in the path
+- Follow [Step 4](#step-4-run-denet-node) first. 
   You should have config files in the path `/home/denet/.denode/`
 - We used **denet** user as an example, replace it with your username.
 
@@ -250,15 +219,78 @@ DENODE_PASSWORD='your password'
 ```
 
 Run the following commands to enable startup and run node
-```shell
-sudo systemctl daemon-reload
-sudo systemctl enable denode.service
-sudo systemctl start denode.service
-```
+    ```shell
+    sudo systemctl daemon-reload
+    sudo systemctl enable denode.service
+    sudo systemctl start denode.service
+    ```
 Now your node will be running and start at boot.
 
 **View latest logs**
 `journalctl -u denode -r`
+
+# Denode Manager GUI
+## Installation
+
+## Step 0: Prepare environment
+1. Remove old credentials and configurations, they should be imported from scratch:
+    ### Linux/macOS
+    ```shell
+    rm -rf ~/.denode
+    ```
+    ### Windows
+    Use cmd or graphical user interface to remove the folder.
+   ![](assets/win-rm-denode.png)
+
+2. For **Linux/macOS**: Download installation and management scripts from the [scripts](https://github.com/DeNetPRO/Node) directory
+    ```shell
+    install.sh
+    denode-manager.sh
+    ```
+## Step 1: Download Application
+1. Download archive for your system from https://github.com/DeNetPRO/Node/releases as well as for [denode](#step-2-download-datakeeper-node)
+    ### Windows
+    ```
+    denode-manager-win-amd64.msi
+    ```
+    ### Linux
+    ```
+    denode-manager-linux-amd64.zip
+    denode-manager-linux-arm64.zip
+    ```
+    ### macOS
+    ```
+    denode-manager-darwin-amd64.zip
+    denode-manager-darwin-arm64.zip
+    ```
+## Step 2: Install And Run
+### macOS/Linux
+1. Open terminal as for [denode installation](#macos)
+2. Allow scripts execution on this device 
+    ```shell
+    cd ~/Downloads
+    chmod +x install.sh denode-manager.sh
+    ```
+3. Run installation script that will install the application in ~/.denode-manager by default
+    ```shell
+   sudo bash install.sh
+   ```
+   ![](assets/mac-install-gui.png)
+4. Then start the application and check its state using ***denode-manager.sh*** script
+    ```shell
+   sudo bash denode-manager.sh
+   ```
+   ![](assets/mac-start-server.png)
+### Windows
+Use .msi installer
+## Step 3: Open Application Interface in Browser
+1. Open browser and go to http://localhost:1111
+   ![](assets/node-gui.png)
+
+## NOTES:
+1. Application should always be running in the background, otherwise the application will not work, check the status using ***denode-manager.sh*** script (Mac/Linux)
+2. You shouldn't use both CLI and GUI at the same time, otherwise you will get an undefined applications behaviour.
+3. We recommend to change rpc to the private one exactly after the node launch. It will allow to avoid problems with the default version limitations.
 
 #### Ask your questions here and get help:
 
