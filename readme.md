@@ -219,11 +219,11 @@ DENODE_PASSWORD='your password'
 ```
 
 Run the following commands to enable startup and run node
-    ```shell
-    sudo systemctl daemon-reload
-    sudo systemctl enable denode.service
-    sudo systemctl start denode.service
-    ```
+```shell
+sudo systemctl daemon-reload
+sudo systemctl enable denode.service
+sudo systemctl start denode.service
+```
 Now your node will be running and start at boot.
 
 **View latest logs**
