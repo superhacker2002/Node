@@ -19,16 +19,16 @@ fi
 case "$OS" in
   linux)
     case "$ARCH" in
-      x86_64) ARCHIVE="denode-manager-linux-amd64.zip" ;;
-      armv6*) ARCHIVE="denode-manager-linux-armv6.zip" ;;
-      aarch64) ARCHIVE="denode-manager-linux-arm64.zip" ;;
+      x86_64) ARCHIVE="denode-manager-linux-amd64" ;;
+      armv6*) ARCHIVE="denode-manager-linux-armv6" ;;
+      aarch64) ARCHIVE="denode-manager-linux-arm64" ;;
       *) echo -e "${RED}ERROR: Unsupported architecture: ${BOLD}$ARCH${NC}"; exit 1 ;;
     esac
     ;;
   darwin)
     case "$ARCH" in
-      x86_64) ARCHIVE="denode-manager-darwin-amd64.zip" ;;
-      arm64) ARCHIVE="denode-manager-darwin-arm64.zip" ;;
+      x86_64) ARCHIVE="denode-manager-darwin-amd64" ;;
+      arm64) ARCHIVE="denode-manager-darwin-arm64" ;;
       *) echo -e "${RED}ERROR: Unsupported architecture: ${BOLD}$ARCH${NC}"; exit 1 ;;
     esac
     ;;
@@ -42,17 +42,17 @@ LOGS_DIR="$INSTALL_DIR/logs"
 
 echo -e "\n${BLUE}=== Starting Denode Manager Installation ===${NC}\n"
 echo -e "${YELLOW}Detected OS: ${BOLD}$OS${NC}, Architecture: ${BOLD}$ARCH${NC}"
-echo -e "${YELLOW}Selected archive: ${BOLD}$ARCHIVE${NC}"
+echo -e "${YELLOW}Selected archive: ${BOLD}$ARCHIVE.zip${NC}"
 echo -e "${YELLOW}Installation directory: ${BOLD}$INSTALL_DIR${NC}\n"
 
-if [ ! -f "$ARCHIVE" ]; then
-  echo -e "${RED}ERROR: Archive ${BOLD}$ARCHIVE${NC} not found in current directory"
+if [ ! -f "$ARCHIVE.zip" ]; then
+  echo -e "${RED}ERROR: Archive ${BOLD}$ARCHIVE.zip${NC} not found in current directory"
   exit 1
 fi
 
 TEMP_DIR=$(mktemp -d)
 echo -e "${YELLOW}Extracting zip archive to ${BOLD}$TEMP_DIR${NC}..."
-unzip -q "$ARCHIVE" -d "$TEMP_DIR"
+unzip -q "$ARCHIVE.zip" -d "$TEMP_DIR"
 if [ $? -ne 0 ]; then
   echo -e "${RED}ERROR: Failed to extract zip archive${NC}"
   rm -rf "$TEMP_DIR"
@@ -75,6 +75,7 @@ if [ -n "$TAR_FILE" ]; then
   echo -e "${GREEN}Removed intermediate tar.gz file${NC}"
 else
   echo -e "${YELLOW}No tar.gz file found, assuming direct extraction from zip${NC}"
+  TEMP_DIR=$TEMP_DIR/$ARCHIVE
 fi
 
 # Define paths to expected files in the extracted archive
