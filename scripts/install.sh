@@ -75,7 +75,6 @@ if [ -n "$TAR_FILE" ]; then
   echo -e "${GREEN}Removed intermediate tar.gz file${NC}"
 else
   echo -e "${YELLOW}No tar.gz file found, assuming direct extraction from zip${NC}"
-  TEMP_DIR=$TEMP_DIR/$ARCHIVE
 fi
 
 # Define paths to expected files in the extracted archive
