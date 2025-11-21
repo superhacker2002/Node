@@ -64,7 +64,7 @@ This command will automatically fix missing dependencies and complete the instal
 #### 3. Allow **denode** executable
 
 ```bash
-chmod +x /usr/lib/DeNode\ Manager/bin/denode
+sudo chmod +x /usr/lib/DeNode\ Manager/bin/denode
 ```
 
 > ⚠ The path may vary depending on your system.
