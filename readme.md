@@ -114,7 +114,7 @@ Launch the node via a terminal.
    Or SSH to your remote host.
 2. Run the following commands to create folder, copy and run denode
 ```bash
-curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc5/denode-linux-amd64
+curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc10/denode-linux-amd64
 mkdir ~/denet
 cp denode-linux-amd64 ~/denet/denode
 cd ~/denet
@@ -127,7 +127,7 @@ chmod +x denode
    ![](assets/mac-terminal.png)
 2. Run the following commands to create folder, copy and run denode
 ```bash
-curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc5/denode-macos-amd64
+curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc10/denode-macos-amd64
 mkdir ~/denet
 cp ~/Downloads/denode-macos-amd64 ~/denet/denode
 cd ~/denet
