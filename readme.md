@@ -20,322 +20,131 @@
     </a>
 </p>
 
-💽 **Datakeepers** offer their unused storage space to DeNet Storage users, creating a mutually beneficial conditions for all without any intermediaries. \
+## Table of Contents
+
+- [What is DeNet?](#what-is-denet)
+- [Installation Process](#installation-process)
+- [Supported Platforms](#supported-platforms)
+    - [Command Line Interface (CLI) Node](#command-line-interface-cli-node)
+    - [Desktop Node Manager](#desktop-node-manager)
+- [Node Activity Monitoring](./guides/monitoring.md)
+- [License Management](./guides/license-management.md)
+
+## What is DeNet?
+
+**DeNet** is a decentralized data storage protocol that unlocks the global potential of unused storage. It connects storage providers with those in need of sovereign decentralized storage.
+
+### How It Works:
+
+1. Get a [Datakeeper's license](https://nodesale.denet.app/)
+2. [Install special software](#installation-process) on your computer
+3. Connect to the DeNet network and share your disk space
+4. Store user and business data
+5. Get rewarded directly from storage users
+
+More details about requirements can be found [here](./guides/requirements.md)
+
+### Who is a Datakeeper?
+
+💽 Datakeepers offer their unused storage space to DeNet Storage users, creating a mutually beneficial conditions for all without any intermediaries.
 By utilizing the DeNet Storage Protocol, users pay for the storage they need, while Datakeepers are rewarded for the storage they provide.
 
-# Becoming Datakeeper: Node Set Up Instructions
+# Installation Process
+**Step 1**: Make sure that your setup meets the [requirements](./guides/requirements.md)  
+**Step 2**: Choose the **installation option** that better suits you
 
-This guide walks you through setting up and running a DeNet Node, enabling your device to join the DeNet decentralized storage network
+## Desktop Node Manager
+- **Best for**: Desktop users, beginners, easy management
+- **Features**: Graphical interface for node management
+- **Installation**: Available for Windows, macOS, and Linux desktop versions
+- **Management**: Intuitive GUI with real-time monitoring
+- **Beginner-friendly**: Ideal for users who prefer visual interfaces and point-and-click operations
 
-### Table of contents:
+#### Installation Guide:
 
-- [Datakeeper Node](#denode)
-    - [Installation](#installation)
-      - [Requirements](#requirements)
-      - [Step 0: License Verification](#step-0-verify-your-account-has-license)
-      - [Step 1: Copy Private Key](#step-1-copy-your-private-key)
-      - [Step 2: Download Datakeeper Node](#step-2-download-datakeeper-node)
-      - [Step 3: Start Node](#step-3-start-denet-node)
-          - [Windows](#windows)
-          - [Linux](#linux)
-          - [macOS](#macos)
-      - [Step 4: Run DeNet Node](#step-4-run-denet-node)
-      - [Step 5: Monitor Transactions](#step-5-monitor-transactions)
-- [License Management](#managing-license-addresses)
-- [Node Manager (GUI)](#denode-manager-gui)
-    - [Installation](#installation-1)
-      - [Step 0: Prepare Environment](#step-0-prepare-environment)
-      - [Step 1: Download Node Manager](#step-1-download-application)
-      - [Step 2: Install And Run](#step-2-install-and-run)
-          - [Windows](#windows-1)
-          - [Linux](#linux-1)
-          - [macOS](#macos-1)
-      - [Step 3: Open Application Interface in Browser](#step-3-open-application-interface-in-browser)
-
-# Datakeeper Node
-## Installation
-## Requirements
-
-- A wallet address (DeNet app/Metamask/any other wallet) holding a Datakeeper Node License.
-- Device with free disk space for storing DeNet user data.
-- Terminal access (Command Prompt/PowerShell on Windows, Terminal on macOS/Linux).
-- DeNet Node application downloaded.
-- PEAQ balance: tokens will be distributed to Datakeepers automatically and will be regularly credited for successfully completed transactions, if the node is running and does not disconnect from the network, no deposits will be required.
-
-## Step 0: Verify your account has license
-
-- Open https://peaq.subscan.io/account/YOUR_ADDRESS
-- Replace YOUR_ADDRESS with your wallet address.
-- The license(s) should be seen as a sNL ERC-721 token.
-
-![](assets/license.png)
-
-## Step 1: Copy Your Private Key
-You need the private key from a wallet with a Datakeeper Node License.
-### From DeNet App
-1. Open the DeNet app.
-2. Go to "Profile" -> "Settings"-> “Security”.
-3. Copy the 64-character HEX private key (e.g., a1b2c3d4...).
-4. Save it securely. Never share your private key!
-### From other wallet (we take Metamask as an example)
-1. Open Metamask in your browser or app.
-2. Select the account with the Datakeeper Node License.
-3. Go to "Account Details" > "Export Private Key."
-4. Enter your Metamask password and copy the private key.
-5. **Store it securely! Do not share it anywhere!**
-
-_If you use any other wallet, the steps may differ but should be similar to the list above._
-
-## Step 2: Download Datakeeper Node
-
-1. Visit [https://github.com/DeNetPRO/Node/releases](https://github.com/DeNetPRO/Node/releases)
-2. Download the latest application executable for your OS (Linux, macOS, or Windows)
-   ![](assets/executables.png)
-   **macOS**: use amd64 for Intel hardware, arm64 for Apple Silicon.
-
-3. Copy application to another directory.
-   **Example:**
-    - macOS/Linux: copy denode executable to `~/denet/` directory
-    - Windows: copy to `C:\denet\` directory
-
-## Step 3: Start DeNet Node
-Launch the node via a terminal.
-
-### Windows
-1. Open Terminal: Press **Win + R**, type cmd or powershell, and press Enter.
-   ![](assets/win-cmd.png)
-2. Start the Application:
-- Navigate to the Application Folder
-  ![](assets/win-folder.png)
-- Run application executable
-  ![](assets/win-run.png)
-### Linux
-1. Open Terminal: Use Ctrl + Alt + T or your terminal shortcut.
-   Or SSH to your remote host.
-2. Run the following commands to create folder, copy and run denode
-```bash
-curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc10/denode-linux-amd64
-mkdir ~/denet
-cp denode-linux-amd64 ~/denet/denode
-cd ~/denet
-chmod +x denode
-```
-![](assets/linux-run.png)
-
-### macOS
-1. Open "Terminal" via Spotlight or Applications
-   ![](assets/mac-terminal.png)
-2. Run the following commands to create folder, copy and run denode
-```bash
-curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc10/denode-macos-amd64
-mkdir ~/denet
-cp ~/Downloads/denode-macos-amd64 ~/denet/denode
-cd ~/denet
-chmod +x denode
-xattr -d com.apple.quarantine denode
-```
-![](assets/mac-run.png)
-
-## Step 4: Run DeNet Node
-1. **Enter private key**: Paste the copied private key and press Enter.
-   - The key is stored securely on your device, encrypted with this password.
-
-2. **Set Password**: Enter a strong password
-   - The private key is encrypted with the password.
-
-3. **Choose Port**: Press Enter for the default one
-   - Or specify another (value from 10000 to 65535)
-4. **Specify Storage Directory**: Enter path to the user files storage
-   - **e.g.**, /home/user/denet_storage (Linux/macOS) or C:\denet_storage (Windows).
-   - Ensure the directory exists and has sufficient space.
-   - NOTE: use different storage paths for managing different licenses
-   - **e.g.**, `/home/user/denet_storage_1` for license with id 1, `/home/user/denet_storage_2` for license with id 2, etc.
-5. **Set Storage Space**:
-   - Specify the amount of disk space to allocate for DeNet Storage (e.g., 10). Enter the value (only number, without GiB) when prompted.
-7. **Optional Second Drive**: Enter 'N' to skip.
-   - Or if you want to use another drive, provide its path when prompted.
-8. **Select RPC for peaq Blockchain**: Press Enter to use default one.
-   - Or choose the RPC endpoint (Select RPC for peaq (ChainID: 3338)).
-9. **Verify Operation**:
-   - Watch the terminal output. If no errors appear, your DeNet Node is running correctly.
-     ![](assets/successful-launch.png)
-
-## Step 5: Monitor Transactions
-
-Track your node’s activity using the peaq Subscan web interface.
-1. Visit the peaq Subscan website (e.g., https://peaq.subscan.io/account/YOUR_ADDRESS).
-- Search for your node’s transactions using your Datakeeper address.
-2. Check transaction statuses. Green check marks indicate successful transactions, confirming your node is working correctly.
-   ![](assets/successful-trxs.png)
-## Troubleshooting
-
-- **Errors in Terminal**: Carefully check error message. Most of the errors are related to the lack of Internet, insufficient balance of gas tokens, or the result of manually changing the data generated by the node. Ask for help from community members or contact support in Discord.
-- **Failed Transactions in Subscan**: There may be some unusual situations where transactions fail. If you encounter such cases, please open a support ticket.
-  ![](assets/failed-trx.png)
-- **Port Conflicts**: If port 55050 is in use, try another port (e.g., 55051)
-  ![](assets/port-error.png)
-- **Subscan Issues:** If transactions don’t appear, confirm your node is running and has enough gas tokens (> 0.03 $PEAQ).
-- **Not Opened macOS:**
-    - Run the following command to allow `denode` executable:
-    - `xattr -d com.apple.quarantine denode`
-      ![](assets/mac-error-01.png)
-- **Permission denied**
-   ```bash
-   user@desktop:~/denet$ ./denode
-   -bash: ./denode: Permission denied
-   ```
-    - Allow execution by running `chmod +x denode`
-## Notes
-- Keep your terminal open to maintain the node’s operation. Closing it stops the node. Otherwise, set up the node as a background service (see [Advanced Settings: Systemd Service](#advanced-settings)).
-- Additional steps (e.g., advanced settings) will be added as needed — check for updates from DeNet.
-
-Congratulations, Datakeeper! Your DeNet Node is now contributing to the decentralized storage network.
-
-A graphical user interface (GUI) for seamless node operation coming soon. Stay tuned!
-
-#### Systemd service (Linux)
-- It is recommended to run as non-root user.
-- Follow [Step 4](#step-4-run-denet-node) first.
-  You should have config files in the path `/home/denet/.denode/` (could be generated interactively in the console by running ./denode)
-- We used **denet** user as an example, replace it with your username.
-
-**/etc/systemd/system/denode.service**
-```ini
-[Unit]
-Description=DeNode Service
-After=network.target
-
-[Service]
-User=denet
-Group=denet
-Type=simple
-ExecStart=/usr/local/bin/denode --address 'your Datakeeper account ethereum address' --license 'id of the one of the owned licenses'
-EnvironmentFile=/home/denet/denode.env
-Restart=always
-RestartSec=5
-
-[Install]
-WantedBy=multi-user.target
-```
-**/home/denet/denode.env**
-```text
-DENODE_PASSWORD='your password'
-```
-
-Run the following commands to enable startup and run node
-```shell
-sudo systemctl daemon-reload
-sudo systemctl enable denode.service
-sudo systemctl start denode.service
-```
-Now your node will be running and start at boot.
-
-**View latest logs**
-`journalctl -u denode -r`
-
-## Managing License Addresses
-
-🔐 **Managing License Addresses in DeNet**
-
-📌 **Roles for the License**
-- **License Owner** - The license holder with full management rights.
-- **Admin** - Can change the Manager, but cannot transfer the license.
-- **Manager** - Has a limited set of actions, with no rights in the smart contract.
-
-🧭 **Steps for Managing Addresses**
-
-🔗 **Connecting a Wallet**
-- Open the [web page manager](https://nodemanager.denet.app/) and connect:
-    - Click the **Connect Wallet** button.
-    - Choose a connection method:
-        - Metamask
-        - Wallet Connect
-- After connecting, your address will appear in the top right corner.
-
-📋 **Viewing the List of Licenses**
-- After connecting the wallet:
-    - Each license is displayed as a card with an ID (e.g., ID #2276) and a **Manage** button.
-
-⚙️ **Managing a License**
-- Click **Manage** on the desired license. A window will open:
-    - "You can change address here"
-    - Two fields are available:
-        - **New Admin Address** - For changing the administrator.
-        - **New Manager Address** - For changing the manager.
-
-🛠 **Changing Addresses**
-
-▶️ **Changing the Admin**
-- Enter the new Ethereum address in the **New Admin Address** field.
-- Click the **Change Admin** button.
-- Confirm the transaction in your wallet.
-
-▶️ **Changing the Manager**
-- Enter the new manager’s address in the **New Manager Address** field.
-- Click **Change Manager**.
-- Confirm the action in your wallet.
-
-📌 **Notes**
-- All changes are processed through a smart contract, requiring gas fees.
-- Ensure the provided addresses are valid (Ethereum format).
+1. **Determine your computer's [architecture](#how-to-choose-the-right-architecture) (x86_64 or ARM64)**
+2. **Download the appropriate file** from the [Available Desktop Builds](#available-desktop-builds) section
+3. **Install the application**:
+    - **Windows**: Double-click the downloaded .exe file and follow the prompts
+    - **macOS**: Double-click the .dmg file and drag the app to Applications folder
+    - **Linux**: Install with appropriate package manager command
+4. **Launch the Desktop Node Manager** and [configure](./guides/configuring-manager.md) your node
 
 
-# Denode Manager GUI
-## Installation
+## Command Line Interface (CLI) Node
+- **Best for**: Server environments, headless systems, advanced users
+- **Features**: Full functionality via terminal commands
+- **Installation**: Available for all supported platforms
+- **Management**: Requires manual configuration and monitoring
+- **Beginner-friendly**: Not recommended for users unfamiliar with terminal operations
 
-## Step 0: Prepare environment
-1. For **Linux/macOS**: Download installation and management scripts from the [scripts](https://github.com/DeNetPRO/Node) directory
-    ```shell
-    install.sh
-    denode-manager.sh
-    ```
-## Step 1: Download Application
-1. Download archive for your system from https://github.com/DeNetPRO/Node/releases as well as for [denode](#step-2-download-datakeeper-node)
-   ### Windows
-    ```
-    denode-manager-win-amd64.msi
-    ```
-   ### Linux
-    ```
-    denode-manager-linux-amd64.zip
-    denode-manager-linux-arm64.zip
-    ```
-   ### macOS
-    ```
-    denode-manager-darwin-amd64.zip
-    denode-manager-darwin-arm64.zip
-    ```
-## Step 2: Install And Run
-### macOS/Linux
-1. Open terminal as for [denode installation](#macos)
-2. Allow scripts execution on this device
-    ```shell
-    cd ~/Downloads
-    chmod +x install.sh denode-manager.sh
-    ```
-3. Run installation script that will install the application in ~/.denode-manager by default
-    ```shell
-   sudo bash install.sh
-   ```
-   ![](assets/mac-install-gui.png)
-4. Then start the application and check its state using ***denode-manager.sh*** script
-    ```shell
-   sudo bash denode-manager.sh
-   ```
-   ![](assets/mac-start-server.png)
-### Windows
-Use .msi installer
-## Step 3: Open Application Interface in Browser
-1. Open browser and go to http://localhost:1111
-   ![](assets/node-gui.png)
+> 💡 **Tip**: For detailed platform-specific installation instructions, see:
+> - [Windows](./guides/install-denode-windows.md)
+> - [Linux](./guides/install-denode-linux.md)
+> - [MacOS](./guides/install-denode-mac.md)
 
-## NOTES:
-1. Application should always be running in the background, otherwise the application will not work, check the status using ***denode-manager.sh*** script (Mac/Linux)
-2. You shouldn't use both CLI and GUI at the same time, otherwise you will get an undefined applications behaviour.
-3. We recommend to change rpc to the private one exactly after the node launch. It will allow to avoid problems with the default version limitations.
+# Supported Platforms
 
-#### Ask your questions here and get help:
+DeNet Datakeeper Nodes can be installed on various operating systems depending on your needs and technical requirements:
 
-<a href="https://discord.gg/cPz9m4cSWv">
-    <img alt="discord.png" src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" height="30" width="120" />
-</a>
+## Command Line Interface (CLI) Node
+
+### Available CLI Builds
+
+| Operating System | Architecture | Download Link |
+|------------------|--------------|---------------|
+| **Windows** | x86_64 | [denode-windows-amd64.exe](https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc10/denode-windows-amd64.exe) |
+| **Linux** | x86_64 | [denode-linux-amd64](https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc10/denode-linux-amd64) |
+| **Linux** | ARM64 | [denode-linux-arm64](https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc10/denode-linux-arm64) |
+| **macOS** | x86_64 | [denode-macos-amd64](https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc10/denode-macos-amd64) |
+| **macOS** | ARM64 | [denode-macos-arm64](https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc10/denode-macos-arm64) |
+
+> 📝 **Note**: The DeNet Datakeeper Node CLI is distributed as a standalone binary file without any installation package. Just download the appropriate binary for your system
+
+## Desktop Node Manager
+
+### Available Desktop Builds
+
+| Operating System | [Architecture](#how-to-choose-the-right-architecture) | Download Link                                                                                                                          | [Package Format](#package-format-explanation) | Installation Command |
+|------------------|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|---------------------|
+| **Windows** | x86_64                                             | [DeNode_Manager_1.0.4_x64-setup.exe](https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc10/DeNode_Manager_1.0.4_x64-setup.exe) | Installer                                     | Double-click to install |
+| **macOS** | x86_64                                             | [DeNode_Manager_1.0.4_x64.dmg](https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc10/DeNode_Manager_1.0.4_x64.dmg)            | Disk Image                                    | Open .dmg file and drag to Applications |
+| **macOS** | ARM64                                              | [DeNode_Manager-1.0.4-arm64.dmg](https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc10/DeNode_Manager_1.0.4_x64.dmg)         | Disk Image                                    | Open .dmg file and drag to Applications |
+| **Linux** | x86_64                                             | [DeNode_Manager_1.0.4_amd64.deb](https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc10/DeNode_Manager_1.0.4_amd64.deb)        | DEB (Debian/Ubuntu)                           | `sudo dpkg -i DeNode_Manager_1.0.4_amd64.deb` then `sudo apt install -f` |
+| **Linux** | ARM64                                              | [DeNode_Manager_1.0.4_arm64.deb](https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc10/DeNode_Manager_1.0.4_arm64.deb)        | DEB (Debian/Ubuntu)                           | `sudo dpkg -i DeNode_Manager_1.0.4_arm64.deb` then `sudo apt install -f` |
+| **Linux** | x86_64                                             | [DeNode_Manager-1.0.4-1.x86_64.rpm](https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc10/DeNode_Manager-1.0.4-1.x86_64.rpm)  | RPM (Red Hat/Fedora/CentOS)                   | `sudo rpm -ivh DeNode_Manager-1.0.4-1.x86_64.rpm` |
+| **Linux** | ARM64                                              | [DeNode_Manager-1.0.4-1.aarch64.rpm](https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc10/DeNode_Manager-1.0.4-1.aarch64.rpm) | RPM (Red Hat/Fedora/CentOS)                   | `sudo rpm -ivh DeNode_Manager-1.0.4-1.aarch64.rpm` |
+
+> ⚠️ **Important**: Desktop Node Manager is not available for server operating systems (Ubuntu Server, CentOS, etc.) due to lack of GUI support.
+
+> 💡 **Tip**: Use the Desktop Node Manager download page at https://node.denet.app/ to conveniently download the specific application version.
+
+### How to Choose the Right Architecture
+
+When downloading the DeNet Node Binary Build, it's important to select the version that matches your computer's processor architecture:
+
+- **x86_64 (also called AMD64)**: This is the most common architecture for Intel and AMD processors used in most desktops and laptops
+- **ARM64 (also called AArch64)**: This is used by Apple Silicon (M1, M2, etc.) Macs and some ARM-based Linux devices
+
+To determine your system architecture:
+
+**On macOS:**
+1. Click the Apple menu and select "About This Mac"
+2. Click "More info..."
+3. Look for "Chip" or "Processor" - if it says "Apple M1", "Apple M2", etc., you have ARM64; otherwise, you have x86_64
+
+**On Linux:**
+1. Open a terminal and run: `uname -m`
+2. If it shows `x86_64`, you have x86_64 architecture
+3. If it shows `aarch64`, you have ARM64 architecture
+
+### Package Format Explanation
+
+- **DEB packages** (ending in `.deb`) are used for Debian, Ubuntu, and other Debian-based Linux distributions
+    - Install with: `sudo dpkg -i package.deb` then `sudo apt install -f`
+
+- **RPM packages** (ending in `.rpm`) are used for Red Hat, Fedora, CentOS, and other RPM-based Linux distributions
+    - Install with: `sudo rpm -ivh package.rpm`
+
+> 💡 **Tip**: If you're unsure what Linux distribution you're using, run `cat /etc/os-release` in your terminal to find out.
+
