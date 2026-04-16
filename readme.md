@@ -1,4 +1,8 @@
 <p align="center">
+    <img src="assets/LOGO.png">
+</p>
+
+<p align="center">
     Monetize your computer's storage now!
     <br/><br/>
 
