@@ -1,25 +1,19 @@
 <p align="center">
-    <img src="assets/LOGO.png">
+    <img src="assets/LOGO.png" alt="LOGO">
 </p>
 
 <p align="center">
-    Monetize your computer's storage now!
-    <br/><br/>
-
-    <a href="https://denet.pro">
-        <img alt="website.png" src="assets/denet.pro.svg" height="31" width="120"/>
+    <a href="https://denet.pro" style="margin: 0 8px;">
+        <img src="assets/denet.pro.svg" height="31" width="120" alt="Website">
     </a>
-    
-    <a href="https://t.me/+Yu5KnSruttc5ZGRi">
-        <img alt="tg.png" src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" height="30" width="110"/>
+    <a href="https://t.me/+Yu5KnSruttc5ZGRi" style="margin: 0 8px;">
+        <img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" height="30" width="110" alt="Telegram">
     </a>
-    
-    <a href="https://discord.gg/cPz9m4cSWv">
-        <img alt="discord.png" src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" height="30" width="110" />
+    <a href="https://discord.gg/cPz9m4cSWv" style="margin: 0 8px;">
+        <img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" height="30" width="110" alt="Discord">
     </a>
-    
-    <a href="https://www.youtube.com/channel/UCeCxt3tYbtSkJvaznNjQimQ">
-        <img alt="youtube.png" src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" height="30" width="110" />
+    <a href="https://www.youtube.com/channel/UCeCxt3tYbtSkJvaznNjQimQ" style="margin: 0 8px;">
+        <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" height="30" width="110" alt="YouTube">
     </a>
 </p>
 
