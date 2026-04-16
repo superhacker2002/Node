@@ -3,11 +3,12 @@
 <img src="assets/LOGO.png" alt="LOGO"><br><br>
 
 Monetize your computer's storage now!<br><br>
-
-<a href="https://denet.pro" style="margin:0 10px"><img src="assets/denet.pro.svg" height="31" width="120" alt="Website"></a>
-<a href="https://t.me/+Yu5KnSruttc5ZGRi" style="margin:0 10px"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" height="30" width="110" alt="Telegram"></a>
-<a href="https://discord.gg/cPz9m4cSWv" style="margin:0 10px"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" height="30" width="110" alt="Discord"></a>
-<a href="https://www.youtube.com/channel/UCeCxt3tYbtSkJvaznNjQimQ" style="margin:0 10px"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" height="30" width="110" alt="YouTube"></a>
+<div>
+    <a href="https://denet.pro" style="margin:0 10px"><img src="assets/denet.pro.svg" height="31" width="120" alt="Website"></a>
+    <a href="https://t.me/DeNetNews" style="margin:0 10px"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" height="30" width="120" alt="Telegram"></a>
+    <a href="https://discord.gg/cPz9m4cSWv" style="margin:0 10px"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" height="30" width="120" alt="Discord"></a>
+    <a href="https://www.youtube.com/channel/UCeCxt3tYbtSkJvaznNjQimQ" style="margin:0 10px"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" height="30" width="120" alt="YouTube"></a>
+</div>
 
 </div>
 
