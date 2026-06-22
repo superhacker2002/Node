@@ -172,3 +172,38 @@ To determine your system architecture:
 
 > 📝 **Note**: The DeNode Manager Web is ideal for server environments where GUI support is not available, while DeNode Manager Desktop provides a more user-friendly experience for desktop users.
 
+# Guides
+
+## Installation
+  - [DeNode CLI](./guides/install-denode-windows.md)
+    - [Windows](./guides/install-denode-windows.md)
+    - [Linux](./guides/install-denode-linux.md)
+    - [macOS](./guides/install-denode-mac.md)
+    - [DeNode Manager Desktop](./guides/install-denode-manager-windows.md)
+      - [Windows](./guides/install-denode-manager-windows.md)
+      - [Linux](./guides/install-denode-manager-linux.md)
+      - [macOS](./guides/install-denode-manager-macos.md)
+  - [DeNode Manager Web](./guides/install-denode-manager-web-windows.md)
+    - [Windows](./guides/install-denode-manager-web-windows.md)
+    - [Linux](./guides/install-denode-manager-web-linux.md)
+    - [macOS](./guides/install-denode-manager-web-mac.md)
+
+## Configuration
+- [Configuring DeNode CLI](./guides/configuring-cli.md)
+- [Configuring DeNode Manager](./guides/configuring-manager.md)
+
+## Management & Operations
+- [DeNode CLI Commands](./guides/denode-command.md)
+- [Disks Management](./guides/disks-management.md)
+- [License Management](./guides/license-management.md)
+- [Monitoring](./guides/monitoring.md)
+
+## Networking
+- [Public IP](./guides/public-ip.md)
+- [Port Forwarding & DDNS](./guides/port-forwarding-ddns.md)
+- [SSH Tunnel](./guides/ssh-tunnel.md)
+
+## General
+- [Requirements](./guides/requirements.md)
+- [FAQ](./guides/faq.md)
+
