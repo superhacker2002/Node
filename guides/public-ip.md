@@ -1,12 +1,12 @@
 # Public IP Guide
 
+> **Why a public IP matters** — and what to do once you have one. This guide explains the benefits of a public IP for your node. Once you have one, head to the **[Port Forwarding & DDNS guide](./port-forwarding-ddns.md)** to make your node reachable. Can't get a public IP? The **[SSH Tunnel guide](./ssh-tunnel.md)** gives you another path.
+
 ## Table of Contents
 - [What is a Public (White) IP and Why Does It Matter?](#what-is-a-public-white-ip-and-why-does-it-matter)
 - [Why a Public IP is Important for a Node](#why-a-public-ip-is-important-for-a-node)
-- [Benefits of Public IP for Nodes](#benefits-of-public-ip-for-nodes)
 - [Impact on Node Pool Performance](#impact-on-node-pool-performance)
 - [How to Get a Public IP Address](#how-to-get-a-public-ip-address)
-- [Port Forwarding Requirements](#port-forwarding-requirements)
 - [Is a Public IP Required?](#is-a-public-ip-required)
 - [Setting Up Your Node with Public IP](#setting-up-your-node-with-public-ip)
 
@@ -57,43 +57,11 @@ As soon as your Internet service provider turns on the public IP, this new addre
 
 You can confirm this by visiting [whatismyip.com](https://whatismyip.com) or [ipinfo.io](https://ipinfo.io).
 
-### Step 3. Open the port (for your node)
+### Step 3. Configure port forwarding and test
 
-Your node needs an open port so that it can communicate with the outside world. For example, let's say we want to open port 8080:
+With a public IP, you still need to open a port on your router so incoming connections reach your node. The full walkthrough — finding your local IP, reserving it, opening the port, configuring your firewall, checking from outside, and keeping a permanent address with DDNS — is in the **[Port Forwarding & DDNS guide](./port-forwarding-ddns.md)**.
 
-1. Log in to your router's web interface (usually by entering 192.168.0.1 or 192.168.1.1 in your browser)
-2. Look for port forwarding rules, virtual server rules, or sometimes NAT rules
-3. Create a new rule:
-    - External port → 8080
-    - Internal port → 8080
-    - Internal IP address → local IP address of the computer running your node (for example, 192.168.0.25)
-4. Save the rule and restart the router if necessary
-
-### Step 4. Check the settings
-
-Visit the website [canyouseeme.org](https://canyouseeme.org) and enter the port number (for example, 8080) to find out if it is open.
-
-As soon as the port is open and available, your node is ready to receive external connections.
-
-## Port Forwarding Requirements
-
-Even with a public IP address, your node may not be accessible if the necessary ports aren't properly configured. Port forwarding is the process of directing incoming network traffic from your router to your specific device or application.
-
-To make your node fully functional, you'll need to configure port forwarding on your router to allow incoming connections on the required ports. This typically involves:
-
-1. Choosing the specific port your node will use for communication
-2. Accessing your router's admin panel
-3. Setting up port forwarding rules to direct traffic to your node's local IP address
-
-Without proper port forwarding, your public IP won't enable direct connections to your node, and it will still rely on intermediary nodes for communication.
-
-## Benefits of Public IP for Nodes
-
-👉 That's why nodes with a public IP are more valuable:
-
-- They improve the overall stability of the pool
-- They reduce network latency by cutting out middle layers
-- They unlock additional rewards as recognition for carrying extra responsibility
+> 💡 Can't forward a port (CGNAT, provider blocking, no router access)? If your provider can't give you a public IP — or forwarding still doesn't work — use the **[SSH Tunnel guide](./ssh-tunnel.md)** to make your node reachable through a remote server instead.
 
 ## Impact on Node Pool Performance
 

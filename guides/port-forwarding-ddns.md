@@ -4,6 +4,8 @@
 
 When your node's port is reachable from the internet, other nodes can connect to you directly, which makes your node faster and more reliable. This guide shows how to open (forward) that port on your router, confirm it works, and give your connection a permanent name with Dynamic DNS (DDNS) so your address stays the same even when your IP changes.
 
+> 💡 **Why does this matter?** If you're unsure what a public IP is or why your node needs one, read the **[Public IP guide](./public-ip.md)** first — it explains the benefits and how to get a public IP from your provider.
+
 Many home connections already have what they need, so this often works on the first try.
 
 > Throughout this guide we use port `55050` (the node's default) as the example. Replace it with the port your node actually uses.

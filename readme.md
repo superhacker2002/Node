@@ -19,9 +19,8 @@
     - [DeNode Manager Web](#denode-manager-web)
     - [Command Line Interface (CLI) Node](#command-line-interface-cli-node)
 - [Supported Platforms](#supported-platforms)
-- [Node Activity Monitoring](./guides/monitoring.md)
-- [License Management](./guides/license-management.md)
 - [DeNode Manager Web vs Desktop](#denode-manager-web-vs-denode-manager-desktop)
+- [Guides](#guides)
 
 # What is DeNet?
 

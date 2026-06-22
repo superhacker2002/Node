@@ -4,7 +4,7 @@
 
 If your node can't be reached directly from the internet (for example, you're behind CGNAT), you can make it reachable through a remote server that has a public IP, using an SSH reverse tunnel.
 
-> 💡 **Alternative:** If you have direct internet access and can forward ports, the **[Port Forwarding & DDNS guide](guides/port-forwarding-ddns.md)** is simpler and doesn't require a remote server.
+> 💡 **Alternative:** If you have direct internet access and can forward ports, the **[Port Forwarding & DDNS guide](./port-forwarding-ddns.md)** is simpler and doesn't require a remote server. Not sure what kind of IP you have? See the **[Public IP guide](./public-ip.md)** for help identifying your situation.
 
 ## How It Works
 
