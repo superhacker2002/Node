@@ -21,7 +21,7 @@ Choose one of the following methods to download the DeNode Manager:
 
 1. Visit the [DeNet Node Releases page](https://github.com/DeNetPRO/Node/releases/latest)
 2. Download the Windows version:
-   - **Windows (x86_64):** `DeNode_Manager_1.0.12_x64-setup.exe`
+   - **Windows (x86_64):** `DeNode_Manager_1.0.11_x64-setup.exe`
 
 ---
 
@@ -30,7 +30,7 @@ Choose one of the following methods to download the DeNode Manager:
 #### Open the Installer
 
 1. Navigate to your Downloads folder
-2. Double-click `DeNode_Manager_1.0.12_x64-setup.exe`
+2. Double-click `DeNode_Manager_1.0.11_x64-setup.exe`
 3. If prompted by User Account Control, click **Yes** to allow the installation
 
 #### Follow the Installation Wizard
@@ -38,7 +38,7 @@ Choose one of the following methods to download the DeNode Manager:
 1. Click **Next** on the welcome screen
 2. Choose the installation location (default is recommended)
 3. Click **Install** to begin the installation
-4. Wait for the installation to complete and click **Finish** to exit the wizard
+4. Wait for the installation to complete an click **Finish** to exit the wizard
 5. Optionally, check "Launch DeNode Manager" to start the application immediately
 
 ![](../assets/webp/dm-windows-install.webp)

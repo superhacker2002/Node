@@ -23,10 +23,10 @@ Choose one of the following methods to download the DeNode Manager Desktop:
 
 1. Visit the [DeNet Node Releases page](https://github.com/DeNetPRO/Node/releases/latest)
 2. Download the appropriate version for your Linux distribution:
-   - **Debian/Ubuntu (x86_64):** `DeNode_Manager_1.0.12_amd64.deb`
-   - **Debian/Ubuntu (ARM64):** `DeNode_Manager_1.0.12_arm64.deb`
-   - **Red Hat/Fedora/CentOS (x86_64):** `DeNode_Manager-1.0.12-1.x86_64.rpm`
-   - **Red Hat/Fedora/CentOS (ARM64):** `DeNode_Manager-1.0.12-1.aarch64.rpm`
+   - **Debian/Ubuntu (x86_64):** `DeNode_Manager_1.0.11_amd64.deb`
+   - **Debian/Ubuntu (ARM64):** `DeNode_Manager_1.0.11_arm64.deb`
+   - **Red Hat/Fedora/CentOS (x86_64):** `DeNode_Manager-1.0.11-1.x86_64.rpm`
+   - **Red Hat/Fedora/CentOS (ARM64):** `DeNode_Manager-1.0.11-1.aarch64.rpm`
 
 #### Method 2: Using Terminal
 
@@ -40,7 +40,7 @@ curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc11/DeNode_M
 curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc11/DeNode_Manager_1.0.11_arm64.deb
 
 # For Red Hat/Fedora/CentOS (AMD64)
-curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc11/DeNode_Manager-1.0.12-1.x86_64.rpm
+curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc11/DeNode_Manager-1.0.11-1.x86_64.rpm
 
 # For Red Hat/Fedora/CentOS (ARM64)
 curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc11/DeNode_Manager-1.0.5-1.aarch64.rpm
@@ -64,7 +64,7 @@ sudo apt install -f
 
 ```bash
 # Install the package
-sudo rpm -ivh DeNode_Manager-1.0.12-1.x86_64.rpm
+sudo rpm -ivh DeNode_Manager-1.0.11-1.x86_64.rpm
 ```
 
 ![](../assets/webp/dm-linux-install.webp)
