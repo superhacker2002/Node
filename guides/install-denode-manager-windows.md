@@ -38,7 +38,7 @@ Choose one of the following methods to download the DeNode Manager:
 1. Click **Next** on the welcome screen
 2. Choose the installation location (default is recommended)
 3. Click **Install** to begin the installation
-4. Wait for the installation to complete an click **Finish** to exit the wizard
+4. Wait for the installation to complete and click **Finish** to exit the wizard
 5. Optionally, check "Launch DeNode Manager" to start the application immediately
 
 ![](../assets/webp/dm-windows-install.webp)
