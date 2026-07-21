@@ -34,16 +34,16 @@ Open Terminal and run the appropriate command for your distribution:
 
 ```bash
 # For Debian/Ubuntu (AMD64)
-curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc11/DeNode_Manager_1.0.11_amd64.deb
+curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.1.0/DeNode_Manager_1.0.12_amd64.deb
 
 # For Debian/Ubuntu (ARM64)
-curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc11/DeNode_Manager_1.0.11_arm64.deb
+curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.1.0/DeNode_Manager_1.0.12_arm64.deb
 
 # For Red Hat/Fedora/CentOS (AMD64)
-curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc11/DeNode_Manager-1.0.12-1.x86_64.rpm
+curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.1.0/DeNode_Manager-1.0.12-1.x86_64.rpm
 
 # For Red Hat/Fedora/CentOS (ARM64)
-curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.0.1-rc11/DeNode_Manager-1.0.5-1.aarch64.rpm
+curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.1.0/DeNode_Manager-1.0.5-1.aarch64.rpm
 ```
 
 ### Step 1: Installation

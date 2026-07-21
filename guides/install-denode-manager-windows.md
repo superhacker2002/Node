@@ -30,7 +30,7 @@ Choose one of the following methods to download the DeNode Manager:
 #### Open the Installer
 
 1. Navigate to your Downloads folder
-2. Double-click `DeNode_Manager_1.0.11_x64-setup.exe`
+2. Double-click `DeNode_Manager_1.0.12_x64-setup.exe`
 3. If prompted by User Account Control, click **Yes** to allow the installation
 
 #### Follow the Installation Wizard
