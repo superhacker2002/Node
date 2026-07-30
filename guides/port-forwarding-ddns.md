@@ -111,6 +111,7 @@ If your router doesn't have it, set it up on your computer with **DuckDNS** (fre
 
 1. Go to [duckdns.org](https://duckdns.org) and sign in (GitHub / Google / Reddit; no separate password needed).
 2. In the **sub domain** field, type a name (for example `mynode`) and click **add domain** → you now have `mynode.duckdns.org`.
+   > ⚠️ **Name restriction.** The sub domain must **not** contain the substring `denet` (case-insensitive, e.g. `denet`, `DeNet`, `my-denet-node` are all rejected). Pick any other name. This only applies to the part you type — the `duckdns.org` suffix is fixed and unaffected.
 3. Copy your **token** (the long string at the top of the page).
 
 ### Step 6.2: Test it once

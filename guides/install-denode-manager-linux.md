@@ -43,7 +43,7 @@ curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.1.0/DeNode_Manage
 curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.1.0/DeNode_Manager-1.0.12-1.x86_64.rpm
 
 # For Red Hat/Fedora/CentOS (ARM64)
-curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.1.0/DeNode_Manager-1.0.5-1.aarch64.rpm
+curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.1.0/DeNode_Manager-1.0.12-1.aarch64.rpm
 ```
 
 ### Step 1: Installation
@@ -54,7 +54,7 @@ curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.1.0/DeNode_Manage
 
 ```bash
 # Install the package
-sudo dpkg -i DeNode_Manager_1.0.11_amd64.deb
+sudo dpkg -i DeNode_Manager_1.0.12_amd64.deb
 
 # Fix missing dependencies
 sudo apt install -f
