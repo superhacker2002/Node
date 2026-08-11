@@ -1,4 +1,5 @@
 ## FAQ
+**Last update:** 2026-08-11
 
 > In the following answers, using the term "node", we mean the **Datakeeper node**.
 
@@ -41,7 +42,7 @@ RPC (Remote Procedure Call) is the protocol that lets your node communicate with
 
 ### How will Datakeepers be paid?
 
-Earnings consist of two types of payments — directly from users who store data in the network and from token distribution. Use the calculator on the [Node Sale](https://nodesale.denet.app/) page to estimate earnings.
+Earnings consist of two types of payments — directly from users who store data in the network and from token distribution for early Datakeepers. The number of tokens depends on how long ago you joined the network. Use the calculator on the [Node Sale](https://nodesale.denet.app/) page to estimate earnings.
 
 ### Can running nodes be treated as a business?
 
@@ -102,6 +103,14 @@ The system supports both multiple drives per node and multiple nodes per single 
 ### What is a Node Pool in the DeNet ecosystem?
 
 A Node Pool is a group of 32 Datakeeper Nodes that work together as a team. Instead of each node interacting with the entire network, they only communicate within their pool. This reduces delays, speeds up data handling, and lets the network scale as more pools are added.
+
+### How does pool formation currently work?
+
+This is a challenging process when forming optimized sets by multiple characteristics, so we're dealing with it step by step. First came simple distribution of Datakeepers among pools, then we'll form specific collaborations to make them as effective as possible.
+
+For now we don't pay much attention to the amount of shared storage, concentrating on the security and data availability provided by the widest possible distribution of nodes among pools — a hard task since we can't control who runs nodes and how many.
+
+The next step will integrate an algorithm assessing node reputation, publicity, and other parameters, each with its own weight. It won't be ideal, but we'll make it as safe and efficient as possible.
 
 ### How do Node Pools help scale the network?
 
@@ -203,10 +212,6 @@ In the future we plan to introduce traffic-based payments. Users will pay not on
 
 Tokens are credited to the Datakeeper's balance. If you own several licenses, you withdraw the tokens earned by all of them together.
 
-### Why is the TBY pool on Polygon if the process is on peaq?
-
-Polygon has more DEXes, which makes it easier for you to swap and withdraw the tokens.
-
 ### Where does the liquidity for the TBY pool come from?
 
 At present, all tokens received from sales are automatically transferred into the liquidity pool for Datakeepers (except for a small protocol commission from every sale).
@@ -230,14 +235,6 @@ If a node doesn't send any proof during a full cycle, it receives 1 penalty. Aft
 Yes. As soon as the node submits a valid proof, the 10-penalty cycle before ejection restarts for that node. But the conditions can be changed depending on the pool.
 
 ## Network & Market
-
-### How does pool formation currently work?
-
-This is a challenging process when forming optimized sets by multiple characteristics, so we're dealing with it step by step. First came simple distribution of Datakeepers among pools, then we'll form specific collaborations to make them as effective as possible.
-
-For now we don't pay much attention to the amount of shared storage, concentrating on the security and data availability provided by the widest possible distribution of nodes among pools — a hard task since we can't control who runs nodes and how many.
-
-The next step will integrate an algorithm assessing node reputation, publicity, and other parameters, each with its own weight. It won't be ideal, but we'll make it as safe and efficient as possible.
 
 ### What will long-term Datakeepers (1+ year, running from the beginning) receive vs. those who joined later?
 
