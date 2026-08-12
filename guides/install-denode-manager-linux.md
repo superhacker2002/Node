@@ -44,7 +44,6 @@ curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.1.2/DeNode_Manage
 
 # For Red Hat/Fedora/CentOS (ARM64)
 curl -LO https://github.com/DeNetPRO/Node/releases/download/v4.1.2/DeNode_Manager-1.0.14-1.aarch64.rpm
-
 ```
 
 ### Step 1: Installation
