@@ -106,11 +106,11 @@ A Node Pool is a group of 32 Datakeeper Nodes that work together as a team. Inst
 
 ### How does pool formation currently work?
 
-This is a challenging process when forming optimized sets by multiple characteristics, so we're dealing with it step by step. First came simple distribution of Datakeepers among pools, then we'll form specific collaborations to make them as effective as possible.
+We're forming optimized sets by multiple characteristics step by step. The first stage introduced a simple distribution of Datakeepers among pools; the next stage will focus on forming targeted collaborations to make that distribution as effective as possible.
 
-For now we don't pay much attention to the amount of shared storage, concentrating on the security and data availability provided by the widest possible distribution of nodes among pools — a hard task since we can't control who runs nodes and how many.
+At this stage, we're not focusing on the amount of shared storage — the priority is security and data availability, achieved through the widest possible distribution of nodes across pools. This requires careful coordination, since node operators join independently and at their own discretion.
 
-The next step will integrate an algorithm assessing node reputation, publicity, and other parameters, each with its own weight. It won't be ideal, but we'll make it as safe and efficient as possible.
+The next step will integrate an algorithm that evaluates node reputation, publicity, and other parameters, each weighted according to its impact. We'll continue refining this algorithm over time, always optimizing for safety and efficiency.
 
 ### How do Node Pools help scale the network?
 
