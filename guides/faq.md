@@ -245,7 +245,7 @@ We'll announce it if something of this kind appears.
 
 ### How is network revenue generated and distributed?
 
-Coming soon: live earnings calculation and forecasting will be built directly into official [Datakeeper Console](https://datakeeper-console.denet.pro/dashboard), so every Datakeeper can track their real-time share and projected growth in one place.
+Coming soon: live earnings calculation and forecasting will be built directly into our official DeNet services, so every Datakeeper can track their real-time share and projected growth in one place.
 
 ### What determines the difference in earnings between Datakeepers?
 
