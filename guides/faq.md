@@ -1,5 +1,5 @@
 ## FAQ
-**Last update:** 2026-08-19
+**Last update:** 2026-08-26
 
 > In the following answers, using the term "node", we mean the **Datakeeper node**.
 
