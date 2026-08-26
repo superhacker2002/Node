@@ -1,5 +1,5 @@
 ## FAQ
-**Last update:** 2026-08-11
+**Last update:** 2026-08-19
 
 > In the following answers, using the term "node", we mean the **Datakeeper node**.
 
@@ -56,7 +56,7 @@ You can use a PC, laptop, mini PC, or any other device meeting these minimum req
 - Operating system: Windows, Linux, or macOS
 - RAM: at least 1 GB
 - Internet: minimum 10 mb/s
-- Storage: at least 100 GB. The limit is determined by the Node Sale rules. [Check yours](https://nodesale.denet.app/profile/) 
+- Storage: at least 100 GB. The limit is determined by the Node Sale rules. [Check yours](https://nodesale.denet.app/profile/)
 
 ### Can I use an external HDD?
 
@@ -84,7 +84,7 @@ To earn rewards, keep your node online. While offline you temporarily stop earni
 
 ### Do I need a static IP for my node?
 
-No, a static IP is not necessary. Learn more about this in the special [guide](./public-ip.md) 
+No, a static IP is not necessary. Learn more about this in the special [guide](./public-ip.md)
 
 ### Can I expand the storage after the initial setup?
 
@@ -131,6 +131,16 @@ Anyone with a Datakeeper Node license can join — one license per node, one nod
 ### Can a single-node operator join multiple pools?
 
 No, one node can join only one pool. [Learn more about Pools](https://medium.com/denetpro/how-to-scale-decentralized-storage-introducing-datakeeper-node-pools-230b7167d22f)
+
+### How does the current user-to-pool distribution system work?
+
+Each storage user is assigned to a single pool, and new users are distributed based on available free space. This approach supports balanced data placement across the network, but does not guarantee the same amount of data in each pool and on each node, because we can not control how much data is uploaded by each user.
+
+In the future, this may change due to the introduction of a node rating system and the most prioritized pools. As a result, more users will be redirected to higher-performing pools, and the load will increase.
+
+### Is manual pool selection available?
+
+Pool assignment is fully automatic — there is no manual pool selection at this time.
 
 ## Running & Operations
 
@@ -202,6 +212,15 @@ This is a false positive, a known issue. The exclusion is the standard fix; a pe
 
 After this, your node should run without Windows Defender interference. If issues persist, open a support ticket and attach your logs.
 
+### What can cause previously stored data to become unavailable?
+
+The most common causes are:
+
+- The node was reassigned to a different pool after a restart — data associated with the previous pool is no longer tracked under the node's new assignment.
+- The end user who owned the data deleted it themselves — the Datakeeper stops receiving proof challenges and rewards for that data because it no longer exists on the user's side.
+
+The amount of data on a node is a dynamic metric that can fluctuate for many reasons on the user's side. It is not always synchronized with payment calculations at the moment, so you should not perceive a short-term decrease in volume as a direct indicator of income.
+
 ## Rewards & Tokens
 
 ### How will ingress/egress be compensated when data flows through a node but doesn't land on it?
@@ -223,6 +242,16 @@ The mechanics of increasing the limit are possible but have not yet been highlig
 ### Is there potential for staking in exchange for additional licenses or storage capacity?
 
 We'll announce it if something of this kind appears.
+
+### How is network revenue generated and distributed?
+
+Coming soon: live earnings calculation and forecasting will be built directly into our official DeNet services, so every Datakeeper can track their real-time share and projected growth in one place.
+
+### What determines the difference in earnings between Datakeepers?
+
+Earnings come from real user payments for storage. When a node successfully submits Proof-of-Storage, it receives TBY directly from the users whose data it stores in the pool in which it was defined.
+
+The more data a node stores and successfully proves, the higher its earnings.
 
 ## Uptime & Penalties
 
