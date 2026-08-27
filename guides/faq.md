@@ -1,5 +1,5 @@
 ## FAQ
-**Last update:** 2026-08-26
+**Last update:** 2026-08-27
 
 > In the following answers, using the term "node", we mean the **Datakeeper node**.
 
@@ -56,7 +56,15 @@ You can use a PC, laptop, mini PC, or any other device meeting these minimum req
 - Operating system: Windows, Linux, or macOS
 - RAM: at least 1 GB
 - Internet: minimum 10 mb/s
-- Storage: at least 100 GB. The limit is determined by the Node Sale rules. [Check yours](https://nodesale.denet.app/profile/)
+
+Storage requirements and disk formatting recommendations are below.
+
+### Recommended technical specifications
+
+| Parameter | Minimum | Recommended | Notes |
+|---|---|---|---|
+| Storage | 100 GB | 2 TB or more | More stored (and proven) data means more rewards. The cap is determined by the Node Sale rules. [Check yours](https://nodesale.denet.app/profile/) |
+| Drive cluster size (NTFS allocation unit, Windows only) | 4 KB (OS default) | 64 KB – 1024 KB (1 MB) | The node writes/reads a huge number of small file parts; the 4 KB default adds filesystem overhead and extra I/O. Larger clusters trade some wasted space for fewer, faster I/O operations. Set this when formatting the drive — it can't be changed afterward without reformatting. Applies to Windows/NTFS; Linux (ext4) and macOS (APFS) don't expose an equivalent setting through standard formatting tools. |
 
 ### Can I use an external HDD?
 
