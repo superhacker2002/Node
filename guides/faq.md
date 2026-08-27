@@ -80,7 +80,7 @@ Yes, you can run several nodes on one PC. This is a strategy to optimize storage
 
 ### Can I transfer my data to a new PC without losing it?
 
-Yes. Connect your HDD/SSD to the new PC and launch your node from the new computer.
+Yes. Connect your HDD/SSD to the new PC and launch your node from the new computer. See the full [migration guide](./migrating-node.md) for step-by-step instructions.
 
 ### What happens if my drive/device fails or goes offline?
 
