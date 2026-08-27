@@ -23,7 +23,7 @@ Decide what you're moving:
 - **Just the setup** (account + config), and you'll let the node re-sync data from scratch — simplest option.
 - **The setup and the already-stored data**, by physically moving the drive — keeps your existing stored files, avoids re-download.
 
-> 💡 **Moving only some of your licenses?** If you're keeping the rest running on the old computer, delegate the moved licenses to a separate wallet address via [License Management](./license-management.md) instead of splitting one account across two machines — otherwise you'll hit the same transaction conflicts as running one license twice.
+> 💡 **Moving only some of your licenses?** If you're keeping the rest running on the old computer, delegate the moved licenses to a separate wallet address via [License Management](./license-management.md) instead of splitting one account across two machines — otherwise you'll hit transaction conflicts.
 
 ---
 
