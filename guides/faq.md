@@ -1,5 +1,5 @@
 ## FAQ
-**Last update:** 2026-08-27
+**Last update:** 2026-09-01
 
 > In the following answers, using the term "node", we mean the **Datakeeper node**.
 
@@ -206,7 +206,7 @@ You can always check your node's performance on https://peaq.subscan.io/
 
 ### How do I run my licenses on different computers without transaction errors?
 
-All nodes normally rely on a shared database that helps avoid conflicts when submitting transactions. If licenses are split across different machines, those nodes don't have access to each other's transaction state, which is what's causing the collisions.
+All nodes (versions above v4.1.3-rc1) normally rely on a shared database that helps avoid conflicts when submitting transactions. If licenses are split across different machines, those nodes don't have access to each other's transaction state, which is what's causing the collisions.
 
 The fix is to delegate the affected licenses to a separate wallet address per server, using the [License Management](./license-management.md) feature. For example, if licenses 1 and 2 run on one server, leave them as-is, and delegate 3 and 4 (running on the other server) to a different wallet address. Without this you will keep getting transaction errors.
 
