@@ -1,5 +1,5 @@
 ## FAQ
-**Last update:** 2026-08-26
+**Last update:** 2026-09-01
 
 > In the following answers, using the term "node", we mean the **Datakeeper node**.
 
@@ -56,7 +56,15 @@ You can use a PC, laptop, mini PC, or any other device meeting these minimum req
 - Operating system: Windows, Linux, or macOS
 - RAM: at least 1 GB
 - Internet: minimum 10 mb/s
-- Storage: at least 100 GB. The limit is determined by the Node Sale rules. [Check yours](https://nodesale.denet.app/profile/)
+
+Storage requirements and disk formatting recommendations are below.
+
+### Recommended technical specifications
+
+| Parameter | Minimum | Recommended | Notes |
+|---|---|---|---|
+| Storage | 100 GB | 2 TB or more | More stored (and proven) data means more rewards. The cap is determined by the Node Sale rules. [Check yours](https://nodesale.denet.app/profile/) |
+| Drive cluster size (NTFS allocation unit, Windows only) | 4 KB (OS default) | 64 KB – 1024 KB (1 MB) | The node writes/reads a huge number of small file parts; the 4 KB default adds filesystem overhead and extra I/O. Larger clusters trade some wasted space for fewer, faster I/O operations. Set this when formatting the drive — it can't be changed afterward without reformatting. Applies to Windows/NTFS; Linux (ext4) and macOS (APFS) don't expose an equivalent setting through standard formatting tools. |
 
 ### Can I use an external HDD?
 
@@ -72,7 +80,7 @@ Yes, you can run several nodes on one PC. This is a strategy to optimize storage
 
 ### Can I transfer my data to a new PC without losing it?
 
-Yes. Connect your HDD/SSD to the new PC and launch your node from the new computer.
+Yes. Connect your HDD/SSD to the new PC and launch your node from the new computer. See the full [migration guide](./migrating-node.md) for step-by-step instructions.
 
 ### What happens if my drive/device fails or goes offline?
 
@@ -106,11 +114,11 @@ A Node Pool is a group of 32 Datakeeper Nodes that work together as a team. Inst
 
 ### How does pool formation currently work?
 
-This is a challenging process when forming optimized sets by multiple characteristics, so we're dealing with it step by step. First came simple distribution of Datakeepers among pools, then we'll form specific collaborations to make them as effective as possible.
+We're forming optimized sets by multiple characteristics step by step. The first stage introduced a simple distribution of Datakeepers among pools; the next stage will focus on forming targeted collaborations to make that distribution as effective as possible.
 
-For now we don't pay much attention to the amount of shared storage, concentrating on the security and data availability provided by the widest possible distribution of nodes among pools — a hard task since we can't control who runs nodes and how many.
+At this stage, we're not focusing on the amount of shared storage — the priority is security and data availability, achieved through the widest possible distribution of nodes across pools. This requires careful coordination, since node operators join independently and at their own discretion.
 
-The next step will integrate an algorithm assessing node reputation, publicity, and other parameters, each with its own weight. It won't be ideal, but we'll make it as safe and efficient as possible.
+The next step will integrate an algorithm that evaluates node reputation, publicity, and other parameters, each weighted according to its impact. We'll continue refining this algorithm over time, always optimizing for safety and efficiency.
 
 ### How do Node Pools help scale the network?
 
@@ -195,6 +203,12 @@ Your node often uses specific methods to perform different actions. The most com
 - `0xbdd859e9` → Confirms storage for a specific user
 
 You can always check your node's performance on https://peaq.subscan.io/
+
+### How do I run my licenses on different computers without transaction errors?
+
+All nodes (versions above v4.1.3-rc1) normally rely on a shared database that helps avoid conflicts when submitting transactions. If licenses are split across different machines, those nodes don't have access to each other's transaction state, which is what's causing the collisions.
+
+The fix is to delegate the affected licenses to a separate wallet address per server, using the [License Management](./license-management.md) feature. For example, if licenses 1 and 2 run on one server, leave them as-is, and delegate 3 and 4 (running on the other server) to a different wallet address. Without this you will keep getting transaction errors.
 
 ### What is the general recommendation to avoid errors?
 
