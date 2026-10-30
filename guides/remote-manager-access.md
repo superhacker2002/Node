@@ -25,19 +25,23 @@ Keep the terminal open and open [http://localhost:1111](http://localhost:1111) o
 
 ## Option 2: VPN
 
-### 1. Find the Manager address
+### 1. Connect the devices and choose the Manager address
 
-Connect the client to the VPN. Choose the IP address **assigned to the Manager computer** and reachable from the client:
+Connect your phone or laptop to the VPN. The computer running Manager must also be reachable through that VPN. Choose the address based on where the VPN connection ends:
 
-| Your setup | Address to use | Example |
+| VPN setup | Address to use for Manager | Example |
 | --- | --- | --- |
-| VPN server and Manager on the same computer | Manager computer's VPN address | `10.90.90.1` |
-| VPN server is separate; Manager joins as a VPN client | Manager computer's own VPN address | `10.90.90.2` |
-| VPN gateway routes to Manager's local network | Manager computer's reachable local address | `192.168.1.20` |
+| VPN server runs on the Manager computer | That computer's VPN address | `10.90.90.1` |
+| VPN server is a different computer; Manager computer connects as a VPN client | The VPN address assigned to the Manager computer | `10.90.90.2` |
+| VPN gateway routes to the Manager computer's local network | The Manager computer's local network address | `192.168.1.20` |
 
-Find the addresses on the Manager computer with `ip -br address` (Linux), `ifconfig` (macOS), or `ipconfig` (Windows). Use the IP without `/24` or another prefix. Do not use the phone's address or a separate VPN server's address.
+The second row means the **computer running Manager joins the VPN as a client** and receives its own VPN address. The VPN server's public address is only used to connect to the VPN; it is not the Manager address. In the gateway setup, the VPN must route traffic to the Manager computer and allow its replies back to the client.
 
-For a separate VPN server, routing and firewalls must permit traffic in both directions. If the VPN ends at a gateway, the connection between the gateway and Manager is outside the VPN encryption.
+Use the chosen Manager address in both places below: the `--add-listen` command on the Manager computer, and the URL opened on your phone. The phone's VPN address is different; use it only when writing a firewall rule that allows trusted VPN clients.
+
+On the Manager computer, find its addresses with `ip -br address` (Linux), `ifconfig` (macOS), or `ipconfig` (Windows). `--add-listen` must use an address assigned to an active network interface on this computer. For example, if the Manager computer's VPN address is `10.90.90.2`, use `10.90.90.2` below. Do not enter the phone's address or the VPN server's public address.
+
+When the VPN connection ends at a separate gateway, traffic from that gateway to the Manager computer is outside the VPN encryption.
 
 ### 2. Allow access privately
 
@@ -45,7 +49,7 @@ Allow TCP **1111** from trusted VPN clients to the Manager computer. Remove publ
 
 ### 3. Start Manager on that address
 
-On the Manager computer, stop Manager using your normal procedure. Make sure the interface with the selected address is active. Then run, replacing `10.90.90.2` with your Manager address:
+On the Manager computer, stop Manager using your normal procedure. Make sure the interface with the selected address is active. Then run, replacing `10.90.90.2` with the address you chose for the Manager computer:
 
 ```sh
 cd ~/.denode-manager
@@ -62,7 +66,7 @@ Use your usual installation directory and account. If Manager runs as a system s
 
 ### 4. Open Manager
 
-On the VPN-connected client, open `http://10.90.90.2:1111`, replacing the IP with the Manager address you chose. On the Manager computer itself, use `http://localhost:1111`.
+On the VPN-connected client, open `http://10.90.90.2:1111`, using the same Manager address you passed to `--add-listen`. On the Manager computer itself, use `http://localhost:1111`.
 
 ## Installing as a PWA
 
