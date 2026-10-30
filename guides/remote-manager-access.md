@@ -1,84 +1,82 @@
-# Secure remote access to DeNode Manager Web
+# Access DeNode Manager Web remotely
 
-DeNode Manager Web uses TCP port **1111**. Do not expose it directly to the internet: the current HTTP connection does not encrypt session tokens. For remote access, use a private VPN or an SSH tunnel and restrict public access to the manager port.
+By default, DeNode Manager is available only on the computer where it runs. To open it from another device, use an SSH tunnel or a private VPN.
 
-Choose one of the two methods below:
+**Keep Manager's TCP port 1111 private.** Manager uses HTTP, so opening this port to the internet can expose the interface and its traffic. SSH or a VPN provides a private connection.
 
-- [Option A: VPN](#option-a-vpn) — access the manager through a private network, without opening an SSH tunnel each time.
-- [Option B: SSH tunnel](#option-b-ssh-tunnel) — forward a local port through an encrypted SSH connection.
+The Datakeeper node uses a separate port for peer communication. Do not close that port or place it behind the VPN when configuring remote Manager access.
 
-> This guide covers the **manager interface**. The Datakeeper node uses a separate port to communicate with peers. Do not close or change the node's port as part of these steps.
+Choose a method:
 
-## Before you begin
+- **SSH tunnel:** use it if you have SSH access to the computer running Manager.
+- **Private VPN:** use it to connect from a phone or another device. If you need a VPN, see the [VPN setup guide](./private-vpn-setup.md).
 
-You need access to the machine running the manager and permission to manage its firewall, cloud security group and any router port forwarding. If you do not manage these, ask the server administrator. Keep a working administrative connection open while changing firewall rules and confirm you can reconnect before disconnecting.
+## Option 1: SSH tunnel
 
-The current Manager Web may listen on `0.0.0.0:1111`, which makes it reachable on every network interface unless firewall rules restrict access. Both methods below can work with that setting; neither requires changing it to localhost.
-
-## Option A: VPN
-
-A VPN connects your computer and the manager server through an encrypted private network. The manager is accessed using the **server's VPN address**, while public access to TCP 1111 remains blocked.
-
-### 1. Connect both devices to a private VPN
-
-Use an existing trusted VPN, or set one up on both the server running Manager Web and the computer from which you manage it. Follow the instructions for your VPN to add both devices to the same private network.
-
-Identify the server's VPN IP address or private VPN hostname in your VPN client or admin console. This is different from the server's public IP. Ensure both devices are connected and can reach one another over the VPN.
-
-### 2. Restrict who can access the manager
-
-In VPN access policies, allow only trusted users or devices to connect to TCP **1111** on the manager server. In the server firewall, allow TCP 1111 from the trusted VPN interface or VPN client addresses, and block public access to that port. Also remove public TCP 1111 rules and forwarding from any cloud firewall and router, for IPv4 and IPv6 where applicable.
-
-Firewall rules are evaluated differently by different platforms. Verify the rule order and the VPN provider's routing/firewall requirements for your setup. Keep SSH or another administrative connection available while making changes. A general-purpose consumer VPN that merely routes internet traffic is not enough: both devices must be able to reach each other through the private VPN.
-
-### 3. Open the manager over VPN
-
-On your computer, connect to the VPN and enter the server's private VPN address in the browser:
-
-```text
-http://SERVER_VPN_IP:1111
-```
-
-Replace `SERVER_VPN_IP` with the actual VPN address. For an IPv6 address, use brackets: `http://[SERVER_VPN_IPV6]:1111`. Sign in to the manager as usual.
-
-The connection uses HTTP inside the encrypted VPN tunnel. Restrict VPN access to trusted devices; VPN encryption does not protect against a compromised endpoint or untrusted device with access to the VPN. If Manager Web is bound only to `127.0.0.1`, another VPN device cannot access it directly: use an SSH tunnel or configure the manager to listen on a VPN-reachable interface.
-
-Verify that access works over the VPN, then [verify that the public port is closed](#verify-public-access-is-blocked). For connection and access policy details, consult the documentation for your VPN.
-
-## Option B: SSH tunnel
-
-### 1. Restrict public access
-
-In the server firewall, cloud security group and router, remove public inbound and forwarding rules for TCP **1111**, for IPv4 and IPv6. Keep SSH available from trusted addresses and confirm you can reconnect before closing your existing session.
-
-### 2. Open a tunnel from your computer
-
-Run this command in Terminal (macOS or Linux) or PowerShell (Windows). Replace `SSH_USER` and `SERVER_IP` with your SSH username and server address:
+On the client computer, run:
 
 ```sh
-ssh -N -o ExitOnForwardFailure=yes -L 127.0.0.1:1111:127.0.0.1:1111 SSH_USER@SERVER_IP
+ssh -N -o ExitOnForwardFailure=yes -L 127.0.0.1:1111:127.0.0.1:1111 SSH_USER@MANAGER_SSH_HOST
 ```
 
-If SSH uses a port other than 22, add `-p SSH_PORT` before `SSH_USER@SERVER_IP`. If you use an SSH key, add `-i PATH_TO_PRIVATE_KEY`. Verify the server host-key fingerprint through a trusted channel when connecting for the first time.
+Replace `SSH_USER` and `MANAGER_SSH_HOST` with the credentials and address you normally use to SSH into the **Manager computer**. For a custom SSH port add `-p SSH_PORT`. Verify the host-key fingerprint through a trusted channel on first connection.
 
-Keep this terminal open. The command normally shows no output once connected. It forwards port 1111 on your computer through SSH to port 1111 on the server.
+Keep the terminal open and open [http://localhost:1111](http://localhost:1111) on the same client computer. Press `Ctrl+C` to disconnect.
 
-### 3. Open the manager
+## Option 2: VPN
 
-On the same computer, open [http://localhost:1111](http://localhost:1111) and sign in. The HTTP connection is local to your computer; traffic between your computer and the server travels through SSH. When finished, sign out and stop the tunnel with `Ctrl+C`.
+### 1. Find the Manager address
 
-If local port 1111 is already in use, stop the conflicting local service and retry. The current web app expects `localhost:1111` when opened locally. If the tunnel fails, check SSH credentials, the SSH port and whether the server permits port forwarding; do not open public port 1111 to fix SSH.
+Connect the client to the VPN. Choose the IP address **assigned to the Manager computer** and reachable from the client:
 
-## Verify public access is blocked
+| Your setup | Address to use | Example |
+| --- | --- | --- |
+| VPN server and Manager on the same computer | Manager computer's VPN address | `10.90.90.1` |
+| VPN server is separate; Manager joins as a VPN client | Manager computer's own VPN address | `10.90.90.2` |
+| VPN gateway routes to Manager's local network | Manager computer's reachable local address | `192.168.1.20` |
 
-From a different machine **outside the server's network and VPN**, test each public IPv4 and IPv6 address as applicable. For example:
+Find the addresses on the Manager computer with `ip -br address` (Linux), `ifconfig` (macOS), or `ipconfig` (Windows). Use the IP without `/24` or another prefix. Do not use the phone's address or a separate VPN server's address.
+
+For a separate VPN server, routing and firewalls must permit traffic in both directions. If the VPN ends at a gateway, the connection between the gateway and Manager is outside the VPN encryption.
+
+### 2. Allow access privately
+
+Allow TCP **1111** from trusted VPN clients to the Manager computer. Remove public access to this port in the computer firewall, cloud firewall and router, including IPv6 where applicable. Keep your administrative connection open while changing firewall rules.
+
+### 3. Start Manager on that address
+
+On the Manager computer, stop Manager using your normal procedure. Make sure the interface with the selected address is active. Then run, replacing `10.90.90.2` with your Manager address:
 
 ```sh
-nc -vz -w 3 SERVER_IP 1111
+cd ~/.denode-manager
+./server --add-listen 10.90.90.2:1111
 ```
 
-A successful connection means the port is still reachable: check the server firewall, cloud rules and router forwarding. A timeout or refusal is consistent with the port being blocked, but check each public address and network path; one failed test does not prove every path is closed. This test does not invoke a manager API or delete an account.
+Alternatively, start or restart it using the management script:
 
-If the manager is inaccessible over VPN, check that it is running and listening on an interface reachable over VPN, the VPN policy allows the connection, and the server firewall allows trusted VPN traffic. If it is inaccessible through SSH, check that the tunnel remains open and that the manager is listening on port 1111 on the server.
+```sh
+DENODE_MANAGER_ADD_LISTEN=10.90.90.2:1111 bash denode-manager.sh
+```
 
-For the separate reverse tunnel used to expose a Datakeeper **node** port, see the [SSH Tunnel Guide](./ssh-tunnel.md).
+Use your usual installation directory and account. If Manager runs as a system service, add the flag or environment variable to the service configuration so it applies on restart. The installed version must support `--add-listen`. By default, Manager also remains available locally at `127.0.0.1:1111`.
+
+### 4. Open Manager
+
+On the VPN-connected client, open `http://10.90.90.2:1111`, replacing the IP with the Manager address you chose. On the Manager computer itself, use `http://localhost:1111`.
+
+## Installing as a PWA
+
+A VPN does not turn HTTP into HTTPS. The remote HTTP address can open in a browser, but an installable PWA generally needs HTTPS with a certificate trusted by the client and must meet the app's installability requirements. A home-screen shortcut may not be an installed PWA. This guide does not configure HTTPS. See [MDN's PWA installation requirements](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable).
+
+An SSH tunnel opened on the client provides a `localhost` URL, which browsers treat as secure for local development.
+
+## Troubleshooting
+
+- **No VPN connection:** check the VPN endpoint, UDP port, keys and firewalls. Generate traffic and check for a recent WireGuard handshake.
+- **VPN connects but Manager does not open:** check the route to the Manager address, the Manager listener and the TCP 1111 firewall rule. With a separate gateway, check the return route too.
+- **Manager fails to start:** confirm the selected address belongs to an active interface on the Manager computer and your version supports `--add-listen`.
+- **SSH fails:** check SSH access and forwarding. Do not expose port 1111 to fix it.
+
+To check for accidental public access, test each public IPv4 and IPv6 address from outside the VPN and local network, for example `nc -vz -w 3 MANAGER_PUBLIC_IP 1111`. Replace the placeholder with the public IP of the Manager computer or its router. A successful connection means the port is exposed; a failed test alone does not prove all paths are closed.
+
+For the separate tunnel used by the Datakeeper **node**, see the [SSH Tunnel Guide](./ssh-tunnel.md).
