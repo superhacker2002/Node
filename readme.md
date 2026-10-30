@@ -126,7 +126,7 @@ DeNet Datakeeper Nodes can be installed on various operating systems depending o
 | **macOS** | x86_64 | [denode-manager-darwin-amd64.zip](https://github.com/DeNetPRO/Node/releases/download/v4.1.3/denode-manager-darwin-amd64.zip) |
 | **macOS** | ARM64 | [denode-manager-darwin-arm64.zip](https://github.com/DeNetPRO/Node/releases/download/v4.1.3/denode-manager-darwin-arm64.zip) |
 
-> 📝 **Note**: DeNode Manager Web is distributed as a zip or msi file that requires additional setup steps compared to DeNode Manager Desktop. It's suitable for both desktop and server environments.
+> 📝 **Note**: DeNode Manager Web is distributed as a zip archive that requires additional setup steps compared to DeNode Manager Desktop. It's suitable for both desktop and server environments.
 
 ## How to Choose the Right Architecture
 
@@ -195,6 +195,7 @@ To determine your system architecture:
 - [Disks Management](./guides/disks-management.md)
 - [License Management](./guides/license-management.md)
 - [Monitoring](./guides/monitoring.md)
+- [Systemd Service (Linux CLI)](./guides/systemd-service.md)
 
 ## Networking
 - [Public IP](./guides/public-ip.md)
